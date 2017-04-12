@@ -1,0 +1,972 @@
+{
+    "record": [
+      {
+        "Nummer": "1",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "2",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "3",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "4",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "5",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "6",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "7",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "8",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "9",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "10",
+        "Lichaamsdeelnummer": "1",
+        "Lichaamsdeel": "Linkerhand",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "11",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "12",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "13",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "14",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "15",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "16",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "17",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "18",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "19",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "20",
+        "Lichaamsdeelnummer": "2",
+        "Lichaamsdeel": "Rechterhand",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "21",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "22",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "23",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "24",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "25",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "26",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "27",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "28",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "29",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "30",
+        "Lichaamsdeelnummer": "3",
+        "Lichaamsdeel": "Linkerarm",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "31",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "32",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "33",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "34",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "35",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "36",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "37",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "38",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "39",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "40",
+        "Lichaamsdeelnummer": "4",
+        "Lichaamsdeel": "Rechterarm",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "41",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "42",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "43",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "44",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "45",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "46",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "47",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "48",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "49",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "50",
+        "Lichaamsdeelnummer": "5",
+        "Lichaamsdeel": "Linkerbeen",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "51",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "52",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "53",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "54",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "55",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "56",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "57",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "58",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "59",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "60",
+        "Lichaamsdeelnummer": "6",
+        "Lichaamsdeel": "Rechterbeen",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "61",
+        "Lichaamsdeelnummer": "7",
+        "Lichaamsdeel": "Buik",
+        "Type_beweging": "Fluent",
+        "Style": "All"
+      },
+      {
+        "Nummer": "62",
+        "Lichaamsdeelnummer": "8",
+        "Lichaamsdeel": "Kont",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "63",
+        "Lichaamsdeelnummer": "8",
+        "Lichaamsdeel": "Kont",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "64",
+        "Lichaamsdeelnummer": "8",
+        "Lichaamsdeel": "Kont",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "65",
+        "Lichaamsdeelnummer": "8",
+        "Lichaamsdeel": "Kont",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "66",
+        "Lichaamsdeelnummer": "8",
+        "Lichaamsdeel": "Kont",
+        "Type_beweging": "Fluent",
+        "Style": "All"
+      },
+      {
+        "Nummer": "67",
+        "Lichaamsdeelnummer": "9",
+        "Lichaamsdeel": "Hoofd",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "68",
+        "Lichaamsdeelnummer": "9",
+        "Lichaamsdeel": "Hoofd",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "69",
+        "Lichaamsdeelnummer": "9",
+        "Lichaamsdeel": "Hoofd",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "70",
+        "Lichaamsdeelnummer": "9",
+        "Lichaamsdeel": "Hoofd",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "71",
+        "Lichaamsdeelnummer": "9",
+        "Lichaamsdeel": "Hoofd",
+        "Type_beweging": "Fluent",
+        "Style": "All"
+      },
+      {
+        "Nummer": "72",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "73",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "74",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "75",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "76",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "77",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "78",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "79",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "80",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "81",
+        "Lichaamsdeelnummer": "10",
+        "Lichaamsdeel": "Linkervoet",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "82",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "1",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "83",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "2",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "84",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "85",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "4",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "86",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "5",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "87",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "6",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "88",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "89",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "8",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "90",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "91",
+        "Lichaamsdeelnummer": "11",
+        "Lichaamsdeel": "Rechtervoet",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "92",
+        "Lichaamsdeelnummer": "12",
+        "Lichaamsdeel": "Rug",
+        "Type_beweging": "Static",
+        "Direction": "3",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "93",
+        "Lichaamsdeelnummer": "12",
+        "Lichaamsdeel": "Rug",
+        "Type_beweging": "Static",
+        "Direction": "7",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "94",
+        "Lichaamsdeelnummer": "12",
+        "Lichaamsdeel": "Rug",
+        "Type_beweging": "Static",
+        "Direction": "9",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "95",
+        "Lichaamsdeelnummer": "12",
+        "Lichaamsdeel": "Rug",
+        "Type_beweging": "Static",
+        "Direction": "10",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "96",
+        "Lichaamsdeelnummer": "13",
+        "Lichaamsdeel": "Blokstep",
+        "Type_beweging": "Bestaande_pas",
+        "Duration": "4",
+        "Style": "Streetdance"
+      },
+      {
+        "Nummer": "97",
+        "Lichaamsdeelnummer": "14",
+        "Lichaamsdeel": "Pas de chat",
+        "Type_beweging": "Bestaande_pas",
+        "Duration": "4",
+        "Style": "Ballet"
+      },
+      {
+        "Nummer": "98",
+        "Lichaamsdeelnummer": "15",
+        "Lichaamsdeel": "Plie",
+        "Type_beweging": "Bestaande_pas",
+        "Duration": "2",
+        "Style": "Ballet"
+      },
+      {
+        "Nummer": "99",
+        "Lichaamsdeelnummer": "16",
+        "Lichaamsdeel": "Linkerknie",
+        "Type_beweging": "Static",
+        "Direction": "11",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "100",
+        "Lichaamsdeelnummer": "16",
+        "Lichaamsdeel": "Linkerknie",
+        "Type_beweging": "Static",
+        "Direction": "12",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "101",
+        "Lichaamsdeelnummer": "17",
+        "Lichaamsdeel": "Rechterknie",
+        "Type_beweging": "Static",
+        "Direction": "11",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "102",
+        "Lichaamsdeelnummer": "17",
+        "Lichaamsdeel": "Rechterknie",
+        "Type_beweging": "Static",
+        "Direction": "12",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "103",
+        "Lichaamsdeelnummer": "18",
+        "Lichaamsdeel": "Linkerelleboog",
+        "Type_beweging": "Static",
+        "Direction": "11",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "104",
+        "Lichaamsdeelnummer": "18",
+        "Lichaamsdeel": "Linkerelleboog",
+        "Type_beweging": "Static",
+        "Direction": "12",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "105",
+        "Lichaamsdeelnummer": "19",
+        "Lichaamsdeel": "Rechterelleboog",
+        "Type_beweging": "Static",
+        "Direction": "11",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "106",
+        "Lichaamsdeelnummer": "19",
+        "Lichaamsdeel": "Rechterelleboog",
+        "Type_beweging": "Static",
+        "Direction": "12",
+        "Duration": "1",
+        "Style": "All"
+      },
+      {
+        "Nummer": "107",
+        "Lichaamsdeelnummer": "20",
+        "Lichaamsdeel": "Borst",
+        "Type_beweging": "Fluent",
+        "Style": "All"
+      },
+      {
+        "Nummer": "108",
+        "Lichaamsdeelnummer": "21",
+        "Lichaamsdeel": "Geen",
+        "Type_beweging": "None",
+        "Duration": "1",
+        "Style": "All"
+      },
+      { "Nummer": "109" },
+      { "Nummer": "110" },
+      { "Nummer": "111" },
+      { "Nummer": "112" },
+      { "Nummer": "113" },
+      { "Nummer": "114" },
+      { "Nummer": "115" },
+      { "Nummer": "116" }
+    ]
+  }
