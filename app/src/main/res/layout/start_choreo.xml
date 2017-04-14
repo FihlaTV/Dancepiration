@@ -4,24 +4,45 @@
     android:layout_height="match_parent"
     android:background="#c6ced1">
 
-    <EditText
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Geef hier je startpositie aan"
+        android:id="@+id/textView" />
+
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
+        android:id="@+id/startpositie"
         android:layout_gravity="center_horizontal"
-        android:hint="Wat is je startpositie?"/>
+        android:entries="@array/startposities"/>
 
-    <EditText
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Geef hier je dansstijl aan"
+        android:id="@+id/textView2" />
+
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:hint="Welke dansstijl is het?"/>
+        android:id="@+id/dansstijl"
+        android:entries="@array/dansstijl"/>
 
-    <EditText
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Geef hier je vervolgstap aan"
+        android:id="@+id/textView3" />
+
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:hint="Wat is je vervolgstap?"/>
+        android:id="@+id/vervolgstap"
+        android:entries="@array/vervolgstap"/>
 
     <Button
         android:layout_width="wrap_content"

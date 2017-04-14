@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -27,32 +29,39 @@ import java.util.ArrayList;
  */
 public class StartChoreo extends AppCompatActivity {
 
-    EditText t;
-    Button b;
-    String s;
+    String alles;
     private static final String TAG = StartChoreo.class.getName();
     private static final String FILENAME = "myFile.txt";
+    private Spinner startPositie;
+    private Spinner dansStijl;
+    private Spinner vervolgStap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_choreo);
-
+        this.startPositie = (Spinner) this.findViewById(R.id.startpositie);
+        this.dansStijl = (Spinner) this.findViewById(R.id.dansstijl);
+        this.vervolgStap = (Spinner) this.findViewById(R.id.vervolgstap);
         parseJSON();
         };
 
     public void dezetekst(View v) {
-        t = (EditText) findViewById(R.id.editText);
-        b = (Button) findViewById(R.id.okbutton);
+        TextView startPos  =  (TextView)startPositie.getSelectedView();
+        TextView dansstijl  =  (TextView)dansStijl.getSelectedView();
+        TextView vervolgstap  =  (TextView)vervolgStap.getSelectedView();
+        String positie = startPos.getText().toString();
+        String stijl = dansstijl.getText().toString();
+        String stap = vervolgstap.getText().toString();
 
-        s = t.getText().toString();
+        alles = positie + " " + stijl + " " + stap;
+        Log.d("pleasedoehet", "dezetekst() returned: " + alles);
 
-
-        writeToFile(s  + " - ");
+        writeToFile(alles  + " - ");
 
         String textFromFileString =  readFromFile();
 
-        if (s.equals(textFromFileString) )
+        if (alles.equals(textFromFileString) )
             Toast.makeText(getApplicationContext(), "both string are equal", Toast.LENGTH_SHORT).show();
         else
             Toast.makeText(getApplicationContext(), "there is a problem", Toast.LENGTH_SHORT).show();
@@ -60,7 +69,7 @@ public class StartChoreo extends AppCompatActivity {
 
     private void writeToFile(String data) {
         try {
-            Log.d("Iksnaphetnietmeer", "writeToFile() returned: " + s);
+            Log.d("Iksnaphetnietmeer", "writeToFile() returned: " + alles);
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(FILENAME, Context.MODE_APPEND));
             outputStreamWriter.write(data);
             outputStreamWriter.close();
