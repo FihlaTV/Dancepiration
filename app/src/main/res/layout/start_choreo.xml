@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#c6ced1">
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:hint="Wat is je startpositie?"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText2"
+        android:hint="Welke dansstijl is het?"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:hint="Wat is je vervolgstap?"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -15,5 +29,7 @@
         android:text="OK"
         android:id="@+id/okbutton"
         android:onClick="dezetekst"
+        android:background="#000000"
+        android:textColor="#ffffff"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
