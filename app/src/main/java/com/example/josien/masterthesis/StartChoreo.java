@@ -117,7 +117,7 @@ public class StartChoreo extends AppCompatActivity {
         try
         {
             AssetManager assetManager = context.getAssets();
-            InputStream in = assetManager.open("json.json");
+            InputStream in = assetManager.open("newjson.json");
             InputStreamReader isr = new InputStreamReader(in);
             char [] inputBuffer = new char[100];
 
