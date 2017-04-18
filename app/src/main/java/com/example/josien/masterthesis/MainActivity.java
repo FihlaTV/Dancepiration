@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //this.initBodyParts();
     }
 
     public void nieuwechoreografie(View view){
@@ -24,5 +25,10 @@ public class MainActivity extends AppCompatActivity {
     public void bestaandechoreografie(View view){
         Toast.makeText(getApplicationContext(), "Dit kun je helaas nog niet gebruiken", Toast.LENGTH_LONG).show();
     }
+    /*
+    private void initBodyParts(){
+        new Legs() rightLeg;
+    }
+    */
 }
 
