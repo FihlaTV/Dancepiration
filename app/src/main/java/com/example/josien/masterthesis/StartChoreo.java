@@ -52,23 +52,38 @@ public class StartChoreo extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Creates dialog window for confirmation of logout
-                AlertDialog.Builder builder = new AlertDialog.Builder(StartChoreo.this);
-                builder
-                        .setMessage(alles)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-                                Toast.makeText(getApplicationContext(), "Wat vind je ervan?", Toast.LENGTH_SHORT).show();
 
-                            }
-                        })
-                        .show();
+                TextView startPos  =  (TextView)startPositie.getSelectedView();
+                TextView dansstijl  =  (TextView)dansStijl.getSelectedView();
+                TextView vervolgstap  =  (TextView)vervolgStap.getSelectedView();
+                String positie = startPos.getText().toString();
+                String stijl = dansstijl.getText().toString();
+                String stap = vervolgstap.getText().toString();
+
+                alles = positie + " " + stijl + " " + stap;
+
+                if (alles.contains("Vul dit in")) {
+                    Toast.makeText(getApplicationContext(), "Vul eerst iets in", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Creates dialog window for confirmation of logout
+                    AlertDialog.Builder builder = new AlertDialog.Builder(StartChoreo.this);
+                    builder
+                            .setMessage(alles)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                    Toast.makeText(getApplicationContext(), "Wat vind je ervan?", Toast.LENGTH_SHORT).show();
+
+                                }
+                            })
+                            .show();
+                }
             }
         });
     }
 
     public void dezetekst(View v) {
+
         TextView startPos  =  (TextView)startPositie.getSelectedView();
         TextView dansstijl  =  (TextView)dansStijl.getSelectedView();
         TextView vervolgstap  =  (TextView)vervolgStap.getSelectedView();
@@ -77,6 +92,7 @@ public class StartChoreo extends AppCompatActivity {
         String stap = vervolgstap.getText().toString();
 
         alles = positie + " " + stijl + " " + stap;
+
         Log.d("pleasedoehet", "dezetekst() returned: " + alles);
 
         writeToFile(alles  + " - ");

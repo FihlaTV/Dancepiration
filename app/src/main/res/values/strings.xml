@@ -1,13 +1,14 @@
 <resources>
     <string name="app_name">Danspiratie</string>
     <string-array name="startposities">
-        <item>Klik hier en selecteer je startpositie</item>
+        <item>Vul dit in</item>
         <item>vanuit stand, geen bijzonderheden</item>
         <item>zittend</item>
         <item>op de hurken</item>
         <item>vanuit stand, met toevoegingen</item>
     </string-array>
     <string-array name="dansstijl">
+        <item>Vul dit in</item>
         <item>Alle dansstijlen</item>
         <item>Streetdance</item>
         <item>Hiphop</item>
@@ -17,6 +18,7 @@
         <item>Anders</item>
     </string-array>
     <string-array name="vervolgstap">
+        <item>Vul dit in</item>
         <item>Moet nog ingevuld worden</item>
         <item>Dus nog even kijken hoe en wat</item>
     </string-array>
