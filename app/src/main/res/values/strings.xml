@@ -2,15 +2,13 @@
     <string name="app_name">Danspiratie</string>
     <string-array name="startposities">
         <item>Vul dit in</item>
-        <item>vanuit stand, geen bijzonderheden</item>
-        <item>zittend</item>
-        <item>op de hurken</item>
-        <item>vanuit stand, met toevoegingen</item>
+        <item>Vanuit stand</item>
+        <item>Zittend</item>
+        <item>Gehurkd</item>
     </string-array>
     <string-array name="dansstijl">
         <item>Vul dit in</item>
-        <item>Alle dansstijlen</item>
-        <item>Streetdance</item>
+        <item>Algemene dans</item>
         <item>Hiphop</item>
         <item>Ballet</item>
         <item>Modern</item>
@@ -19,8 +17,8 @@
     </string-array>
     <string-array name="vervolgstap">
         <item>Vul dit in</item>
-        <item>Moet nog ingevuld worden</item>
-        <item>Dus nog even kijken hoe en wat</item>
+        <item>Bestaand danspas</item>
+        <item>Losse beweging</item>
     </string-array>
 
 </resources>

@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
 
 /**
  * Created by Josien on 12-4-2017.
@@ -32,7 +31,7 @@ public class StartChoreo extends AppCompatActivity {
 
     String alles;
     private static final String TAG = StartChoreo.class.getName();
-    private static final String FILENAME = "test.txt";
+    private static final String FILENAME = "new.txt";
     private Spinner startPositie;
     private Spinner dansStijl;
     private Spinner vervolgStap;
@@ -60,10 +59,10 @@ public class StartChoreo extends AppCompatActivity {
                 String stijl = dansstijl.getText().toString();
                 String stap = vervolgstap.getText().toString();
 
-                alles = positie + " " + stijl + " " + stap;
+                alles = "Startpositie: " + positie + "\r\n" + "Dansstijl: " + stijl + "\r\n" + "Eerste stap: " + stap;
 
                 if (alles.contains("Vul dit in")) {
-                    Toast.makeText(getApplicationContext(), "Vul eerst iets in", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Vul eerst alles volledig in", Toast.LENGTH_SHORT).show();
                 } else {
                     // Creates dialog window for confirmation of logout
                     AlertDialog.Builder builder = new AlertDialog.Builder(StartChoreo.this);
@@ -91,17 +90,20 @@ public class StartChoreo extends AppCompatActivity {
         String stijl = dansstijl.getText().toString();
         String stap = vervolgstap.getText().toString();
 
-        alles = positie + " " + stijl + " " + stap;
+        alles = "Startpositie: " + positie + "\r\n" + "Dansstijl: " + stijl + "\r\n" + "Eerste stap: " + stap;
 
-        Log.d("pleasedoehet", "dezetekst() returned: " + alles);
+        if (alles.contains("Vul dit in")) {
+            Toast.makeText(getApplicationContext(), "Je hebt nog niet alles ingevuld", Toast.LENGTH_SHORT).show();
+            Log.d("pleasedoehet", "dezetekst() returned: " + alles);
+        }   else{
+                writeToFile(alles);
 
-        writeToFile(alles  + " - ");
+                String textFromFileString = readFromFile();
+                Toast.makeText(getApplicationContext(), "Opgeslagen", Toast.LENGTH_SHORT).show();
 
-        String textFromFileString =  readFromFile();
-        Toast.makeText(getApplicationContext(), "Opgeslagen", Toast.LENGTH_SHORT).show();
-
-        Log.d("textfromfilestring", "dezetekst() returned: " + textFromFileString);
-    }
+                Log.d("textfromfilestring", "dezetekst() returned: " + textFromFileString);
+            }
+        }
 
     private void writeToFile(String data) {
         try {
@@ -186,17 +188,18 @@ public class StartChoreo extends AppCompatActivity {
 
 
         try {
-            JSONObject respObj = json;
-            JSONArray art_objects = respObj.getJSONArray("record");
+            JSONArray art_objects = json.getJSONArray("record");
 
             // Loop through the items till it ends
             for (int i = 0; i < art_objects.length(); i++) {
                 JSONObject tijd = art_objects.getJSONObject(i);
-                String title = tijd.getString("Nummer");
-                String producer = tijd.getString("Lichaamsdeel");
-                String longtitle = tijd.getString("Duration");
-                String productionplace = tijd.getString("Style");
-                Log.d("zalhetdan", "parseJSON() returned: " + title + producer + longtitle + productionplace);
+                String nummer = tijd.getString("Nummer");
+                String lichaamsdeel = tijd.getString("Lichaamsdeel");
+                String duration = tijd.getString("Duration");
+                String dancestyle = tijd.getString("Style");
+                String beschrijving = tijd.getString("Beschrijving");
+                String typebeweging = tijd.getString("Type_beweging");
+                Log.d("zalhetdan", "parseJSON() returned: " + nummer + " " + lichaamsdeel + " "  + duration +  " " +dancestyle + " " + beschrijving + " " + typebeweging);
             }
         }
         catch (JSONException e){
