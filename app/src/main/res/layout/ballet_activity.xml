@@ -33,6 +33,21 @@
         android:id="@+id/autocomplete5"
         android:hint="Vijfde pas"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RANDOMIZER"
+        android:id="@+id/okey"
+        android:layout_gravity="center_horizontal"
+        android:onClick="okey"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALGORITHM"
+        android:id="@+id/button5"
+        android:layout_gravity="center_horizontal"
+        android:onClick="algorithm"/>
 
 
 </LinearLayout>
