@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void nieuwechoreografie(View view){
-        Intent startChoreo = new Intent(this, StartChoreo.class);
+        Intent startChoreo = new Intent(this, DanceStyles.class);
 
         startChoreo.putExtra("start_screen", 500);
         startActivity(startChoreo);

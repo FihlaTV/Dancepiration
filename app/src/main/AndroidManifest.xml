@@ -26,6 +26,22 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".DanceStyles"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".BalletClass"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".AllDancestyles"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+
     </application>
 
 </manifest>
