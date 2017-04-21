@@ -5,6 +5,8 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 
 /**
  * Created by Josien on 21-4-2017.
@@ -23,8 +26,10 @@ import java.io.OutputStreamWriter;
 public class BalletClass extends AppCompatActivity{
 
     private static final String TAG = BalletClass.class.getName();
-    private static final String FILENAME = "balletpassen.txt";
+    private static final String FILENAME = "b.txt";
     String dancestyle;
+    ArrayList<String> responseList = new ArrayList<>();
+    String newline = "\r\n";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +37,11 @@ public class BalletClass extends AppCompatActivity{
         setContentView(R.layout.ballet_activity);
         parseJSON();
     }
-
     private void writeToFile(String data) {
         try {
+            String separator = System.getProperty("line.separator");
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(openFileOutput(FILENAME, Context.MODE_APPEND));
+            outputStreamWriter.append(separator);
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         }
@@ -56,7 +62,7 @@ public class BalletClass extends AppCompatActivity{
             if ( inputStream != null ) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                String receiveString = "";
+                String receiveString;
                 StringBuilder stringBuilder = new StringBuilder();
 
                 while ( (receiveString = bufferedReader.readLine()) != null ) {
@@ -65,6 +71,7 @@ public class BalletClass extends AppCompatActivity{
 
                 inputStream.close();
                 ret = stringBuilder.toString();
+                Log.d("JAJAJAJA", "readFromFile() returned: " + ret);
             }
         }
         catch (FileNotFoundException e) {
@@ -85,6 +92,7 @@ public class BalletClass extends AppCompatActivity{
             AssetManager assetManager = context.getAssets();
             InputStream in = assetManager.open("bestaandepassen.json");
             InputStreamReader isr = new InputStreamReader(in);
+
             char [] inputBuffer = new char[100];
 
             int charRead;
@@ -106,12 +114,13 @@ public class BalletClass extends AppCompatActivity{
     {
         JSONObject json = new JSONObject();
 
+
         try {
+
             json = new JSONObject(getJSONString(getApplicationContext()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("ikbenbenieuwd", "parseJSON() returned: " + json);
 
 
         try {
@@ -125,12 +134,43 @@ public class BalletClass extends AppCompatActivity{
                 dancestyle = tijd.getString("Style");
                 String beschrijving = tijd.getString("Beschrijving");
                 Log.d("zalhetdan", "parseJSON() returned: " + nummer + " " + pasnaam +  " " +dancestyle + " " + beschrijving);
-                if (dancestyle.equals("Ballet")){
+                if (dancestyle.equals("Ballet")) {
                     writeToFile(beschrijving);
 
-
+                    responseList.add(beschrijving);
                     String textFromFileString = readFromFile();
                     Log.d("watstaathier", "parseJSON() returned: " + textFromFileString);
+                    Log.d("watkomthieruit", "parseJSON() returned: " + responseList);
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner textView = (Spinner)
+                            findViewById(R.id.autocomplete);
+                    textView.setAdapter(adapter);
+
+                    ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner textView2 = (Spinner)
+                            findViewById(R.id.autocomplete2);
+                    textView2.setAdapter(adapter2);
+
+                    ArrayAdapter<String> adapter3 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner textView3 = (Spinner)
+                            findViewById(R.id.autocomplete3);
+                    textView3.setAdapter(adapter3);
+
+                    ArrayAdapter<String> adapter4 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner textView4 = (Spinner)
+                            findViewById(R.id.autocomplete4);
+                    textView4.setAdapter(adapter4);
+
+                    ArrayAdapter<String> adapter5 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner textView5 = (Spinner)
+                            findViewById(R.id.autocomplete5);
+                    textView5.setAdapter(adapter5);
                 }
 
             }

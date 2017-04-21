@@ -3,4 +3,36 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/autocomplete"
+        android:hint="Eerste pas"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/autocomplete2"
+        android:hint="Tweede pas"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/autocomplete3"
+        android:hint="Derde pas"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/autocomplete4"
+        android:hint="Vierde pas"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/autocomplete5"
+        android:hint="Vijfde pas"/>
+
+
+
 </LinearLayout>
