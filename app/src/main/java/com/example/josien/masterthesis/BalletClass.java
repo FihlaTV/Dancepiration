@@ -42,6 +42,11 @@ public class BalletClass extends AppCompatActivity{
     Spinner textView3;
     Spinner textView4;
     Spinner textView5;
+    Spinner Spinner;
+    Spinner Spinner2;
+    Spinner Spinner3;
+    Spinner Spinner4;
+    Spinner Spinner5;
     JSONArray art_objects;
 
 
@@ -102,7 +107,7 @@ public class BalletClass extends AppCompatActivity{
         try
         {
             AssetManager assetManager = context.getAssets();
-            InputStream in = assetManager.open("bestaandepassen.json");
+            InputStream in = assetManager.open("2304.json");
             InputStreamReader isr = new InputStreamReader(in);
 
             char [] inputBuffer = new char[100];
@@ -181,6 +186,35 @@ public class BalletClass extends AppCompatActivity{
                             findViewById(R.id.autocomplete5);
                     textView5.setAdapter(adapter5);
 
+                    ArrayAdapter<String> adapter6 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner = (Spinner)
+                            findViewById(R.id.spinner);
+                    Spinner.setAdapter(adapter6);
+
+                    ArrayAdapter<String> adapter7 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner2 = (Spinner)
+                            findViewById(R.id.spinner2);
+                    Spinner2.setAdapter(adapter7);
+
+                    ArrayAdapter<String> adapter8 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner3 = (Spinner)
+                            findViewById(R.id.spinner3);
+                    Spinner3.setAdapter(adapter8);
+
+                    ArrayAdapter<String> adapter9 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner4 = (Spinner)
+                            findViewById(R.id.spinner4);
+                    Spinner4.setAdapter(adapter9);
+
+                    ArrayAdapter<String> adapter10 = new ArrayAdapter<>(this,
+                            android.R.layout.simple_dropdown_item_1line, responseList);
+                    Spinner5 = (Spinner)
+                            findViewById(R.id.spinner5);
+                    Spinner5.setAdapter(adapter10);
                 }
 
             }
@@ -194,18 +228,28 @@ public class BalletClass extends AppCompatActivity{
     // parse it
     // send it to existing steps
 
-    public void okey (View view) throws JSONException {
+    public void randomizer (View view) throws JSONException {
 
         TextView stap1  =  (TextView)textView.getSelectedView();
         TextView stap2  =  (TextView)textView2.getSelectedView();
         TextView stap3  =  (TextView)textView3.getSelectedView();
         TextView stap4  =  (TextView)textView4.getSelectedView();
         TextView stap5  =  (TextView)textView5.getSelectedView();
+        TextView stap6  =  (TextView)Spinner.getSelectedView();
+        TextView stap7  =  (TextView)Spinner2.getSelectedView();
+        TextView stap8  =  (TextView)Spinner3.getSelectedView();
+        TextView stap9  =  (TextView)Spinner4.getSelectedView();
+        TextView stap10  =  (TextView)Spinner5.getSelectedView();
         String Stap1 = stap1.getText().toString();
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
         String Stap5 = stap5.getText().toString();
+        String Stap6 = stap6.getText().toString();
+        String Stap7 = stap7.getText().toString();
+        String Stap8 = stap8.getText().toString();
+        String Stap9 = stap9.getText().toString();
+        String Stap10 = stap10.getText().toString();
 
         ArrayList<String> List = new ArrayList<>();
         List.add(Stap1);
@@ -213,8 +257,14 @@ public class BalletClass extends AppCompatActivity{
         List.add(Stap3);
         List.add(Stap4);
         List.add(Stap5);
+        List.add(Stap6);
+        List.add(Stap7);
+        List.add(Stap8);
+        List.add(Stap9);
+        List.add(Stap10);
 
-        bestaandechoreo = Stap1 + "\r\n" + Stap2 + "\r\n" + Stap3 + "\r\n" + Stap4 + "\r\n" + Stap5;
+        bestaandechoreo = Stap1 + "\r\n" + Stap2 + "\r\n" + Stap3 + "\r\n" + Stap4 + "\r\n" + Stap5 +
+        "\r\n"+ Stap6 + "\r\n" + Stap7 + "\r\n" + Stap8 + "\r\n" + Stap9 + "\r\n" + Stap10;
 
         Random random = new Random();
         String R = List.get(random.nextInt(List.size()));
@@ -248,7 +298,44 @@ public class BalletClass extends AppCompatActivity{
 
 
     public void algorithm (View view){
-        //do something really smart
+        TextView stap1  =  (TextView)textView.getSelectedView();
+        TextView stap2  =  (TextView)textView2.getSelectedView();
+        TextView stap3  =  (TextView)textView3.getSelectedView();
+        TextView stap4  =  (TextView)textView4.getSelectedView();
+        TextView stap5  =  (TextView)textView5.getSelectedView();
+        TextView stap6  =  (TextView)Spinner.getSelectedView();
+        TextView stap7  =  (TextView)Spinner2.getSelectedView();
+        TextView stap8  =  (TextView)Spinner3.getSelectedView();
+        TextView stap9  =  (TextView)Spinner4.getSelectedView();
+        TextView stap10  =  (TextView)Spinner5.getSelectedView();
+        String Stap1 = stap1.getText().toString();
+        String Stap2 = stap2.getText().toString();
+        String Stap3 = stap3.getText().toString();
+        String Stap4 = stap4.getText().toString();
+        String Stap5 = stap5.getText().toString();
+        String Stap6 = stap6.getText().toString();
+        String Stap7 = stap7.getText().toString();
+        String Stap8 = stap8.getText().toString();
+        String Stap9 = stap9.getText().toString();
+        String Stap10 = stap10.getText().toString();
+
+        ArrayList<String> ListA = new ArrayList<>();
+        ListA.add(Stap1);
+        ListA.add(Stap2);
+        ListA.add(Stap3);
+        ListA.add(Stap4);
+        ListA.add(Stap5);
+        ListA.add(Stap6);
+        ListA.add(Stap7);
+        ListA.add(Stap8);
+        ListA.add(Stap9);
+        ListA.add(Stap10);
+
+        // check typepas
+        // verander in ander soort van dat typepas
+        // voor randomizer & algorithm: zoek uit hoe je string echt kan vervangen!
+
+        Log.d("Algorithm", "algorithm() returned: " + ListA);
     }
 
 }
