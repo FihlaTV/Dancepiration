@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.os.Bundle;
+import android.renderscript.Sampler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -43,9 +44,8 @@ public class BalletClass extends AppCompatActivity {
     ArrayList<String> Typepas;
     List<String> c;
     List<List<String>> Algo2 = new ArrayList<>();
-    List<String[]> Algo3 = new ArrayList<>();
     String pas1;
-    String pas2;
+    String pas2 = "";
     Spinner textView;
     Spinner textView2;
     Spinner textView3;
@@ -335,6 +335,7 @@ public class BalletClass extends AppCompatActivity {
         String Stap9 = stap9.getText().toString();
         String Stap10 = stap10.getText().toString();
 
+        ArrayList<String> Po = new ArrayList<>();
         ArrayList<String> ListA = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
         ListA.add(Stap1);
@@ -359,35 +360,67 @@ public class BalletClass extends AppCompatActivity {
         ListNew.add(Stap9);
         ListNew.add(Stap10);
 
-        String x = "General";
+
+        String returnValue = "";
+        String returns;
         Random random = new Random();
         int index = random.nextInt(ListA.size());
-        Log.d("evenkijken", "algorithm() returned: " + ListA);
-        Log.d("evenkeuken", "algorithm() returned: " + index);
 
-        pas2 = responseList.get(random.nextInt(responseList.size()));
-        if (ListA.contains(pas2)) {
-            pas2 = responseList.get(random.nextInt(responseList.size()));
-            if (ListA.contains(pas2)) {
-                pas2 = responseList.get(random.nextInt(responseList.size()));
-                if (ListA.contains(pas2)) {
-                    pas2 = responseList.get(random.nextInt(responseList.size()));
+        String ratata = ListA.get(index);
+        String sja;
+        String sjo = "";
+
+        for (List<String> algor : Algo2) {
+            if (algor.toString().contains(ratata)) {
+                String r[] = algor.toString().split(",");
+                returns = r[r.length - 1];
+                sja = returns.substring(0, returns.length() - 1);
+                if (sja.equals(ratata)) {
+                    sjo = r[0];
+                    sjo = sjo.substring(1);
                 }
             }
-        }
+                    if (algor.toString().contains(sjo)) {
+                        String re[] = algor.toString().split(",");
+                        returns = re[re.length - 1];
+                        returns = returns.substring(0, returns.length() - 1);
+                        Po.add(returns);
+                        pas2 = Po.get(random.nextInt(Po.size()));
+                        if (ListA.contains(pas2)) {
+                            pas2 = Po.get(random.nextInt(Po.size()));
+                            if (ListA.contains(pas2)) {
+                                pas2 = Po.get(random.nextInt(Po.size()));
+                                if (ListA.contains(pas2)) {
+                                    pas2 = Po.get(random.nextInt(Po.size()));
+                                }
+                            }
+                        }
+                    }
 
-        ListNew.set(index, pas2);
-        Log.d("evenkieken", "algorithm() returned: " + ListNew);
+                    if (algor.toString().contains(pas2)) {
+                        String result[] = algor.toString().split(",");
+                        returnValue = result[0];
+                        returnValue = returnValue.substring(1);
+                    }
+                }
+                //output = e.g. General
+                if (sjo.equals(returnValue)) {
+                    ListNew.set(index, pas2);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+                    builder
+                            .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                                    "\r\nverander je choreografie naar: \r\n" + ListNew)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                    dialog.cancel();
+                                }
+                            })
+                            .show();
 
-        Log.d("alllrea", "algorithm() returned: " + Algo2);
-        for(List<String> algo : Algo2){
-            Log.d("jaik", "algorithm() returned: " + algo);
-            if (algo.toString().contains(x)){
-                Log.d("zalhetecht", "algorithm() returned: " + algo);
+                }
+
+
             }
         }
-
-        // check typepas
-        // verander in ander soort van dat typepas
-    }
-}
