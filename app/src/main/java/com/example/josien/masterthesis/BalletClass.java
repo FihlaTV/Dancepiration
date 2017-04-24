@@ -22,22 +22,30 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 /**
  * Created by Josien on 21-4-2017.
  */
-public class BalletClass extends AppCompatActivity{
+public class BalletClass extends AppCompatActivity {
 
     private static final String TAG = BalletClass.class.getName();
     private static final String FILENAME = "b.txt";
     String dancestyle;
     String typepas;
+    String beschrijving;
+    String[] combi;
     ArrayList<String> responseList = new ArrayList<>();
-    String bestaandechoreo;
-    String nieuwesuggestie;
+    ArrayList<String> Typepas;
+    List<String> c;
+    List<List<String>> Algo2 = new ArrayList<>();
+    List<String[]> Algo3 = new ArrayList<>();
+    String pas1;
+    String pas2;
     Spinner textView;
     Spinner textView2;
     Spinner textView3;
@@ -52,13 +60,13 @@ public class BalletClass extends AppCompatActivity{
     String textFromFileString;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ballet_activity);
         parseJSON();
     }
+
     private void writeToFile(String data) {
         try {
             String separator = System.getProperty("line.separator");
@@ -66,8 +74,7 @@ public class BalletClass extends AppCompatActivity{
             outputStreamWriter.append(separator);
             outputStreamWriter.write(data);
             outputStreamWriter.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             Log.e(TAG, "File write failed: " + e.toString());
         }
 
@@ -81,21 +88,20 @@ public class BalletClass extends AppCompatActivity{
         try {
             InputStream inputStream = openFileInput(FILENAME);
 
-            if ( inputStream != null ) {
+            if (inputStream != null) {
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
                 BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
                 String receiveString;
                 StringBuilder stringBuilder = new StringBuilder();
 
-                while ( (receiveString = bufferedReader.readLine()) != null ) {
+                while ((receiveString = bufferedReader.readLine()) != null) {
                     stringBuilder.append(receiveString);
                 }
 
                 inputStream.close();
                 ret = stringBuilder.toString();
             }
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             Log.e(TAG, "File not found: " + e.toString());
         } catch (IOException e) {
             Log.e(TAG, "Can not read file: " + e.toString());
@@ -103,34 +109,28 @@ public class BalletClass extends AppCompatActivity{
         return ret;
     }
 
-    private String getJSONString(Context context)
-    {
+    private String getJSONString(Context context) {
         String str = "";
-        try
-        {
+        try {
             AssetManager assetManager = context.getAssets();
             InputStream in = assetManager.open("2304.json");
             InputStreamReader isr = new InputStreamReader(in);
 
-            char [] inputBuffer = new char[100];
+            char[] inputBuffer = new char[100];
 
             int charRead;
-            while((charRead = isr.read(inputBuffer))>0)
-            {
-                String readString = String.copyValueOf(inputBuffer,0,charRead);
+            while ((charRead = isr.read(inputBuffer)) > 0) {
+                String readString = String.copyValueOf(inputBuffer, 0, charRead);
                 str += readString;
             }
-        }
-        catch(IOException ioe)
-        {
+        } catch (IOException ioe) {
             ioe.printStackTrace();
         }
 
         return str;
     }
 
-    public void parseJSON()
-    {
+    public void parseJSON() {
         JSONObject json = new JSONObject();
 
 
@@ -152,14 +152,21 @@ public class BalletClass extends AppCompatActivity{
                 String pasnaam = tijd.getString("Pasnaam");
                 dancestyle = tijd.getString("Style");
                 typepas = tijd.getString("TypePas");
-                Log.d("paktiedit", "parseJSON() returned: " + typepas);
-                String beschrijving = tijd.getString("Beschrijving");
+                beschrijving = tijd.getString("Beschrijving");
+
+                Typepas = new ArrayList<>();
+                combi = new String[]{typepas + "," + beschrijving};
+
+
+                c = Arrays.asList(combi);
+
+                Algo2.add(c);
+
                 if (dancestyle.equals("Ballet")) {
                     writeToFile(beschrijving + typepas);
 
                     responseList.add(beschrijving);
                     textFromFileString = readFromFile();
-                    Log.d("pleaaaaase", "parseJSON() returned: " + textFromFileString);
 
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                             android.R.layout.simple_dropdown_item_1line, responseList);
@@ -223,28 +230,24 @@ public class BalletClass extends AppCompatActivity{
                 }
 
             }
-        }
-        catch (JSONException e){
+
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-    // read json
-    // get balletsteps
-    // parse it
-    // send it to existing steps
 
-    public void randomizer (View view) throws JSONException {
+    public void randomizer(View view) throws JSONException {
 
-        TextView stap1  =  (TextView)textView.getSelectedView();
-        TextView stap2  =  (TextView)textView2.getSelectedView();
-        TextView stap3  =  (TextView)textView3.getSelectedView();
-        TextView stap4  =  (TextView)textView4.getSelectedView();
-        TextView stap5  =  (TextView)textView5.getSelectedView();
-        TextView stap6  =  (TextView)Spinner.getSelectedView();
-        TextView stap7  =  (TextView)Spinner2.getSelectedView();
-        TextView stap8  =  (TextView)Spinner3.getSelectedView();
-        TextView stap9  =  (TextView)Spinner4.getSelectedView();
-        TextView stap10  =  (TextView)Spinner5.getSelectedView();
+        TextView stap1 = (TextView) textView.getSelectedView();
+        TextView stap2 = (TextView) textView2.getSelectedView();
+        TextView stap3 = (TextView) textView3.getSelectedView();
+        TextView stap4 = (TextView) textView4.getSelectedView();
+        TextView stap5 = (TextView) textView5.getSelectedView();
+        TextView stap6 = (TextView) Spinner.getSelectedView();
+        TextView stap7 = (TextView) Spinner2.getSelectedView();
+        TextView stap8 = (TextView) Spinner3.getSelectedView();
+        TextView stap9 = (TextView) Spinner4.getSelectedView();
+        TextView stap10 = (TextView) Spinner5.getSelectedView();
         String Stap1 = stap1.getText().toString();
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
@@ -280,12 +283,9 @@ public class BalletClass extends AppCompatActivity{
         ListNew.add(Stap9);
         ListNew.add(Stap10);
 
-                //Stap1 + "\r\n" + Stap2 + "\r\n" + Stap3 + "\r\n" + Stap4 + "\r\n" + Stap5 +
-       // "\r\n"+ Stap6 + "\r\n" + Stap7 + "\r\n" + Stap8 + "\r\n" + Stap9 + "\r\n" + Stap10;
-
         Random random = new Random();
         int index = random.nextInt(List.size());
-        String pas1 = responseList.get(random.nextInt(responseList.size()));
+        pas1 = responseList.get(random.nextInt(responseList.size()));
         if (List.contains(pas1)) {
             pas1 = responseList.get(random.nextInt(responseList.size()));
             if (List.contains(pas1)) {
@@ -298,104 +298,96 @@ public class BalletClass extends AppCompatActivity{
 
         ListNew.set(index, pas1);
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
-            builder
-                    .setMessage("Dit is nu je choreografie: \r\n" + List +
-                            "\r\nverander je choreografie naar: \r\n" + ListNew)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+        builder
+                .setMessage("Dit is nu je choreografie: \r\n" + List +
+                        "\r\nverander je choreografie naar: \r\n" + ListNew)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
 
-                        }
-                    })
-                    .show();
-        }
-
-
-        //R = R.replace(R, pas1);
+                    }
+                })
+                .show();
+    }
 
 
-    public void algorithm (View view) {
+    public void algorithm(View view) {
 
-        JSONObject json = new JSONObject();
+        TextView stap1 = (TextView) textView.getSelectedView();
+        TextView stap2 = (TextView) textView2.getSelectedView();
+        TextView stap3 = (TextView) textView3.getSelectedView();
+        TextView stap4 = (TextView) textView4.getSelectedView();
+        TextView stap5 = (TextView) textView5.getSelectedView();
+        TextView stap6 = (TextView) Spinner.getSelectedView();
+        TextView stap7 = (TextView) Spinner2.getSelectedView();
+        TextView stap8 = (TextView) Spinner3.getSelectedView();
+        TextView stap9 = (TextView) Spinner4.getSelectedView();
+        TextView stap10 = (TextView) Spinner5.getSelectedView();
+        String Stap1 = stap1.getText().toString();
+        String Stap2 = stap2.getText().toString();
+        String Stap3 = stap3.getText().toString();
+        String Stap4 = stap4.getText().toString();
+        String Stap5 = stap5.getText().toString();
+        String Stap6 = stap6.getText().toString();
+        String Stap7 = stap7.getText().toString();
+        String Stap8 = stap8.getText().toString();
+        String Stap9 = stap9.getText().toString();
+        String Stap10 = stap10.getText().toString();
 
+        ArrayList<String> ListA = new ArrayList<>();
+        ArrayList<String> ListNew = new ArrayList<>();
+        ListA.add(Stap1);
+        ListA.add(Stap2);
+        ListA.add(Stap3);
+        ListA.add(Stap4);
+        ListA.add(Stap5);
+        ListA.add(Stap6);
+        ListA.add(Stap7);
+        ListA.add(Stap8);
+        ListA.add(Stap9);
+        ListA.add(Stap10);
 
-        try {
+        ListNew.add(Stap1);
+        ListNew.add(Stap2);
+        ListNew.add(Stap3);
+        ListNew.add(Stap4);
+        ListNew.add(Stap5);
+        ListNew.add(Stap6);
+        ListNew.add(Stap7);
+        ListNew.add(Stap8);
+        ListNew.add(Stap9);
+        ListNew.add(Stap10);
 
-            json = new JSONObject(getJSONString(getApplicationContext()));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        String x = "General";
+        Random random = new Random();
+        int index = random.nextInt(ListA.size());
+        Log.d("evenkijken", "algorithm() returned: " + ListA);
+        Log.d("evenkeuken", "algorithm() returned: " + index);
 
-
-        try {
-            art_objects = json.getJSONArray("record");
-
-            // Loop through the items till it ends
-            for (int i = 0; i < art_objects.length(); i++) {
-                JSONObject tijd = art_objects.getJSONObject(i);
-                String nummer = tijd.getString("Nummer");
-                String pasnaam = tijd.getString("Pasnaam");
-                dancestyle = tijd.getString("Style");
-                String beschrijving = tijd.getString("Beschrijving");
-                typepas = tijd.getString("TypePas");
-
-                TextView stap1 = (TextView) textView.getSelectedView();
-                TextView stap2 = (TextView) textView2.getSelectedView();
-                TextView stap3 = (TextView) textView3.getSelectedView();
-                TextView stap4 = (TextView) textView4.getSelectedView();
-                TextView stap5 = (TextView) textView5.getSelectedView();
-                TextView stap6 = (TextView) Spinner.getSelectedView();
-                TextView stap7 = (TextView) Spinner2.getSelectedView();
-                TextView stap8 = (TextView) Spinner3.getSelectedView();
-                TextView stap9 = (TextView) Spinner4.getSelectedView();
-                TextView stap10 = (TextView) Spinner5.getSelectedView();
-                String Stap1 = stap1.getText().toString();
-                String Stap2 = stap2.getText().toString();
-                String Stap3 = stap3.getText().toString();
-                String Stap4 = stap4.getText().toString();
-                String Stap5 = stap5.getText().toString();
-                String Stap6 = stap6.getText().toString();
-                String Stap7 = stap7.getText().toString();
-                String Stap8 = stap8.getText().toString();
-                String Stap9 = stap9.getText().toString();
-                String Stap10 = stap10.getText().toString();
-
-                ArrayList<String> ListA = new ArrayList<>();
-                ListA.add(Stap1);
-                ListA.add(Stap2);
-                ListA.add(Stap3);
-                ListA.add(Stap4);
-                ListA.add(Stap5);
-                ListA.add(Stap6);
-                ListA.add(Stap7);
-                ListA.add(Stap8);
-                ListA.add(Stap9);
-                ListA.add(Stap10);
-
-                bestaandechoreo = Stap1 + "\r\n" + Stap2 + "\r\n" + Stap3 + "\r\n" + Stap4 + "\r\n" + Stap5 +
-                        "\r\n"+ Stap6 + "\r\n" + Stap7 + "\r\n" + Stap8 + "\r\n" + Stap9 + "\r\n" + Stap10;
-
-                Random random = new Random();
-                String R = ListA.get(random.nextInt(ListA.size()));
-                Log.d("jaofnee", "algorithm() returned: " + textFromFileString);
-                if (R.contains(typepas)){
-                    Log.d("ditgaatnietwerken", "algorithm() returned: " + R + typepas);
+        pas2 = responseList.get(random.nextInt(responseList.size()));
+        if (ListA.contains(pas2)) {
+            pas2 = responseList.get(random.nextInt(responseList.size()));
+            if (ListA.contains(pas2)) {
+                pas2 = responseList.get(random.nextInt(responseList.size()));
+                if (ListA.contains(pas2)) {
+                    pas2 = responseList.get(random.nextInt(responseList.size()));
                 }
-
-                Log.d("Paktierandom?", "okey() returned: " + R);
-                String pas1 = responseList.get(random.nextInt(responseList.size()));
-                Log.d("Randompas?", "okey() returned: " + pas1);
-
-                // check typepas
-                // verander in ander soort van dat typepas
-                // voor randomizer & algorithm: zoek uit hoe je string echt kan vervangen!
-
-                Log.d("Algorithm", "algorithm() returned: " + ListA);
             }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
+
+        ListNew.set(index, pas2);
+        Log.d("evenkieken", "algorithm() returned: " + ListNew);
+
+        Log.d("alllrea", "algorithm() returned: " + Algo2);
+        for(List<String> algo : Algo2){
+            Log.d("jaik", "algorithm() returned: " + algo);
+            if (algo.toString().contains(x)){
+                Log.d("zalhetecht", "algorithm() returned: " + algo);
+            }
+        }
+
+        // check typepas
+        // verander in ander soort van dat typepas
     }
 }
