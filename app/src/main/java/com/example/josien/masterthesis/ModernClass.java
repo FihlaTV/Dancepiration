@@ -4,10 +4,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.os.Bundle;
-import android.renderscript.Sampler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -17,25 +15,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Josien on 21-4-2017.
+ * Created by Josien on 25-4-2017.
  */
-public class BalletClass extends AppCompatActivity {
+public class ModernClass extends AppCompatActivity {
 
-    private static final String TAG = BalletClass.class.getName();
-    private static final String FILENAME = "b.txt";
     String dancestyle;
     String typepas;
     String beschrijving;
@@ -47,7 +39,7 @@ public class BalletClass extends AppCompatActivity {
     List<List<String>> Algo2 = new ArrayList<>();
     String pas1;
     String pas2 = "";
-    Spinner textView;
+    android.widget.Spinner textView;
     Spinner textView2;
     Spinner textView3;
     Spinner textView4;
@@ -59,7 +51,6 @@ public class BalletClass extends AppCompatActivity {
     Spinner Spinner5;
     Spinner Spinner6;
     JSONArray art_objects;
-    String textFromFileString;
 
 
     @Override
@@ -114,7 +105,7 @@ public class BalletClass extends AppCompatActivity {
                 typepas = tijd.getString("TypePas");
                 beschrijving = tijd.getString("Beschrijving");
 
-                if (dancestyle.equals("Ballet")) {
+                if (dancestyle.equals("Modern")) {
                     if (typepas.equals("Startpositie")){
                         beginPos.add(beschrijving);
                     }
@@ -270,7 +261,7 @@ public class BalletClass extends AppCompatActivity {
 
         ListNew.set(index, pas1);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
         builder
                 .setMessage("Dit is nu je choreografie: \r\n" + List +
                         "\r\nverander je choreografie naar: \r\n" + ListNew)
@@ -355,45 +346,46 @@ public class BalletClass extends AppCompatActivity {
                     sjo = sjo.substring(1);
                 }
             }
-                    if (algor.toString().contains(sjo)) {
-                        String re[] = algor.toString().split(",");
-                        returns = re[re.length - 1];
-                        returns = returns.substring(0, returns.length() - 1);
-                        Po.add(returns);
+            if (algor.toString().contains(sjo)) {
+                String re[] = algor.toString().split(",");
+                returns = re[re.length - 1];
+                returns = returns.substring(0, returns.length() - 1);
+                Po.add(returns);
+                pas2 = Po.get(random.nextInt(Po.size()));
+                if (ListA.contains(pas2)) {
+                    pas2 = Po.get(random.nextInt(Po.size()));
+                    if (ListA.contains(pas2)) {
                         pas2 = Po.get(random.nextInt(Po.size()));
                         if (ListA.contains(pas2)) {
                             pas2 = Po.get(random.nextInt(Po.size()));
-                            if (ListA.contains(pas2)) {
-                                pas2 = Po.get(random.nextInt(Po.size()));
-                                if (ListA.contains(pas2)) {
-                                    pas2 = Po.get(random.nextInt(Po.size()));
-                                }
-                            }
                         }
                     }
-
-                    if (algor.toString().contains(pas2)) {
-                        String result[] = algor.toString().split(",");
-                        returnValue = result[0];
-                        returnValue = returnValue.substring(1);
-                    }
-                }
-                //output = e.g. General
-                if (sjo.equals(returnValue)) {
-                    ListNew.set(index, pas2);
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
-                    builder
-                            .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                    "\r\nverander je choreografie naar: \r\n" + ListNew)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-                                    dialog.cancel();
-                                }
-                            })
-                            .show();
-
                 }
             }
+
+            if (algor.toString().contains(pas2)) {
+                String result[] = algor.toString().split(",");
+                returnValue = result[0];
+                returnValue = returnValue.substring(1);
+            }
         }
+        //output = e.g. General
+        if (sjo.equals(returnValue)) {
+            ListNew.set(index, pas2);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+            builder
+                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                            "\r\nverander je choreografie naar: \r\n" + ListNew)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            dialog.cancel();
+                        }
+                    })
+                    .show();
+
+        }
+    }
+}
+

@@ -29,6 +29,12 @@ public class DanceStyles extends AppCompatActivity {
 
         allDancestyles.putExtra("start_screen", 500);
         startActivity(allDancestyles);
+    }
 
+    public void modern(View view){
+        Intent modern = new Intent(this, ModernClass.class);
+
+        modern.putExtra("start_screen", 500);
+        startActivity(modern);
     }
 }

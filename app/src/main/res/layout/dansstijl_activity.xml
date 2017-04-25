@@ -24,7 +24,8 @@
         android:layout_height="wrap_content"
         android:text="Modern"
         android:id="@+id/modern"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="modern"/>
 
     <Button
         android:layout_width="wrap_content"
