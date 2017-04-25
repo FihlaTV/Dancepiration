@@ -26,7 +26,7 @@ import java.util.Random;
 /**
  * Created by Josien on 25-4-2017.
  */
-public class ModernClass extends AppCompatActivity {
+public class StreetdanceClass extends AppCompatActivity{
 
     String dancestyle;
     String typepas;
@@ -56,7 +56,7 @@ public class ModernClass extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ballet_activity);
+        setContentView(R.layout.streetdance_activity);
         parseJSON();
     }
 
@@ -105,7 +105,7 @@ public class ModernClass extends AppCompatActivity {
                 typepas = tijd.getString("TypePas");
                 beschrijving = tijd.getString("Beschrijving");
 
-                if (dancestyle.equals("Modern")) {
+                if (dancestyle.equals("Streetdance")) {
                     if (typepas.equals("Startpositie")){
                         beginPos.add(beschrijving);
                     }
@@ -261,7 +261,7 @@ public class ModernClass extends AppCompatActivity {
 
         ListNew.set(index, pas1);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
         builder
                 .setMessage("Dit is nu je choreografie: \r\n" + List +
                         "\r\nverander je choreografie naar: \r\n" + ListNew)
@@ -372,7 +372,7 @@ public class ModernClass extends AppCompatActivity {
         //output = e.g. General
         if (sjo.equals(returnValue)) {
             ListNew.set(index, pas2);
-            final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
             builder
                     .setMessage("Dit is nu je choreografie: \r\n" + ListA +
                             "\r\nverander je choreografie naar: \r\n" + ListNew)
@@ -388,4 +388,3 @@ public class ModernClass extends AppCompatActivity {
         }
     }
 }
-

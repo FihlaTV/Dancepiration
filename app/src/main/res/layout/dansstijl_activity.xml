@@ -32,5 +32,6 @@
         android:layout_height="wrap_content"
         android:text="Streetdance"
         android:id="@+id/streetdance"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="streetdance"/>
 </LinearLayout>

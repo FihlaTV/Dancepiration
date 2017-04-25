@@ -37,4 +37,11 @@ public class DanceStyles extends AppCompatActivity {
         modern.putExtra("start_screen", 500);
         startActivity(modern);
     }
+
+    public void streetdance(View view){
+        Intent streetdance = new Intent(this, StreetdanceClass.class);
+
+        streetdance.putExtra("start_screen", 500);
+        startActivity(streetdance);
+    }
 }

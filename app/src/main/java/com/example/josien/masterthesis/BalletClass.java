@@ -34,8 +34,6 @@ import java.util.Random;
  */
 public class BalletClass extends AppCompatActivity {
 
-    private static final String TAG = BalletClass.class.getName();
-    private static final String FILENAME = "b.txt";
     String dancestyle;
     String typepas;
     String beschrijving;
@@ -59,8 +57,6 @@ public class BalletClass extends AppCompatActivity {
     Spinner Spinner5;
     Spinner Spinner6;
     JSONArray art_objects;
-    String textFromFileString;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -185,7 +181,7 @@ public class BalletClass extends AppCompatActivity {
                             android.R.layout.simple_dropdown_item_1line, responseList);
                     Spinner6 = (Spinner)
                             findViewById(R.id.spinner6);
-                    Spinner6.setAdapter(adapter10);
+                    Spinner6.setAdapter(adapter11);
 
                     Typepas = new ArrayList<>();
                     combi = new String[]{typepas + "," + beschrijving};

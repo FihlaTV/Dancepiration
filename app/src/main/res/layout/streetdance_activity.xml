@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ALGORITHM"
+            android:id="@+id/button5"
+            android:onClick="algorithm"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RANDOMIZER"
+            android:id="@+id/okey"
+            android:onClick="randomizer" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Startpositie"
+        android:id="@+id/textView4" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/autocomplete" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Eerste pas"
+        android:id="@+id/textView5" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/autocomplete2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Tweede pas"
+        android:id="@+id/textView6" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/autocomplete3" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Derde pas"
+        android:id="@+id/textView7" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/autocomplete4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Vierde pas"
+        android:id="@+id/textView8" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/autocomplete5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Vijfde pas"
+        android:id="@+id/textView9" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/spinner"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Zesde pas"
+        android:id="@+id/textView10" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/spinner2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Zevende pas"
+        android:id="@+id/textView11" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/spinner3"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Achtste pas"
+        android:id="@+id/textView12" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/spinner4"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Negende pas"
+        android:id="@+id/textView13" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/spinner5"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Tiende pas"
+        android:id="@+id/textView14" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="27dp"
+        android:id="@+id/spinner6"
+        android:layout_gravity="center_horizontal" />
+</LinearLayout>
