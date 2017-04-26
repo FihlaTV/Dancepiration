@@ -44,4 +44,11 @@ public class DanceStyles extends AppCompatActivity {
         streetdance.putExtra("start_screen", 500);
         startActivity(streetdance);
     }
+
+    public void bodyparts(View view){
+        Intent bodypart = new Intent(this, BodyPart.class);
+
+        bodypart.putExtra("start_screen", 500);
+        startActivity(bodypart);
+    }
 }

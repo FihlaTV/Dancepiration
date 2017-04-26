@@ -91,7 +91,6 @@ public class BalletClass extends AppCompatActivity {
 
 
         try {
-
             json = new JSONObject(getJSONString(getApplicationContext()));
         } catch (JSONException e) {
             e.printStackTrace();
