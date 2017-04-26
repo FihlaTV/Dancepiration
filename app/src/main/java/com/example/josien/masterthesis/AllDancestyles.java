@@ -29,10 +29,6 @@ import java.util.Random;
  */
 public class AllDancestyles extends AppCompatActivity {
 
-    /**
-     * Created by Josien on 21-4-2017.
-*/
-
         String dancestyle;
         String typepas;
         String beschrijving;

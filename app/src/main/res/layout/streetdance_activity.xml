@@ -7,18 +7,25 @@
         android:orientation="horizontal" android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:id="@+id/okey"
+        android:onClick="randomizer" />
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ALGORITHM"
+            android:text="2"
             android:id="@+id/button5"
             android:onClick="algorithm"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="RANDOMIZER"
-            android:id="@+id/okey"
-            android:onClick="randomizer" />
+            android:text="3"
+            android:id="@+id/button6"
+            android:onClick="algo"/>
     </LinearLayout>
 
     <TextView

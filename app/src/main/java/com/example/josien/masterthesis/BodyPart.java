@@ -19,9 +19,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by Josien on 26-4-2017.
- */
 public class BodyPart extends AppCompatActivity {
 
     Random random = new Random();
@@ -43,12 +40,12 @@ public class BodyPart extends AppCompatActivity {
     String[] xfirst;
     String[] xsecond;
     String[] xthird;
-    JSONArray art_objects;
+    JSONArray body_parts;
     String lichaamsdeelnummer;
     String lichaamsdeel;
-    String beschrijving;
+    String beschrijvingbodypart;
     String type_beweging;
-    String[] combi;
+    String[] combination;
     List<String> List1;
     List<List<String>> List2 = new ArrayList<>();
     ArrayList<String> allbodyparts = new ArrayList<>();
@@ -57,10 +54,10 @@ public class BodyPart extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bodypart);
-        parseJSON();
+        parseBodyParts();
     }
 
-    private String getJSONString(Context context) {
+    private String getJSON(Context context) {
         String str = "";
         try {
             AssetManager assetManager = context.getAssets();
@@ -81,32 +78,32 @@ public class BodyPart extends AppCompatActivity {
         return str;
     }
 
-    public void parseJSON() {
+    public void parseBodyParts() {
         JSONObject json = new JSONObject();
 
 
         try {
-            json = new JSONObject(getJSONString(getApplicationContext()));
+            json = new JSONObject(getJSON(getApplicationContext()));
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
         try {
-            art_objects = json.getJSONArray("record");
+            body_parts = json.getJSONArray("record");
 
             // Loop through the items till it ends
-            for (int i = 0; i < art_objects.length(); i++) {
-                JSONObject tijd = art_objects.getJSONObject(i);
-                beschrijving = tijd.getString("Beschrijving");
+            for (int i = 0; i < body_parts.length(); i++) {
+                JSONObject tijd = body_parts.getJSONObject(i);
+                beschrijvingbodypart = tijd.getString("Beschrijving");
                 lichaamsdeelnummer = tijd.getString("Lichaamsdeelnummer");
                 lichaamsdeel = tijd.getString("Lichaamsdeel");
                 type_beweging = tijd.getString("Type_beweging");
 
-                allbodyparts.add(beschrijving + " " + lichaamsdeelnummer + " " + type_beweging);
-                combi = new String[]{beschrijving + "," + lichaamsdeelnummer + "," + type_beweging};
+                allbodyparts.add(beschrijvingbodypart + " " + lichaamsdeelnummer + " " + type_beweging);
+                combination = new String[]{beschrijvingbodypart + "," + lichaamsdeelnummer + "," + type_beweging};
 
-                List1 = Arrays.asList(combi);
+                List1 = Arrays.asList(combination);
 
                 List2.add(List1);
 
