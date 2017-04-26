@@ -16,8 +16,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -126,12 +124,6 @@ public class BodyPart extends AppCompatActivity {
     public void body(View view) {
 
         getRandoms();
-        for (List<String> bparts : List2) {
-            List<String> list = bparts;
-
-            if (bparts.toString().contains("1")) {
-            }
-        }
 
         if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)){
             Log.d("jajaja", "body() returned: " + return111 + return222 + return333);
@@ -139,7 +131,18 @@ public class BodyPart extends AppCompatActivity {
         }
 
         if (return1.equals("Fluent") || return2.equals("Fluent") || return3.equals("Fluent")){
-            // show description of fluent one
+            if (return1.equals("Fluent")){
+                return11 = xfirst[0];
+                return11 = return11.substring(1);
+            }
+            if (return2.equals("Fluent")){
+                return22 = xsecond[0];
+                return22 = return22.substring(1);
+            }
+            if (return3.equals("Fluent")){
+                return33 = xthird[0];
+                return33 = return33.substring(1);
+            }
         }
 
         // if everything is static and not the same bodypart; give description
