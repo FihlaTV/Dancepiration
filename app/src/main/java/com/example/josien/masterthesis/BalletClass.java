@@ -358,6 +358,7 @@ public class BalletClass extends AppCompatActivity {
                 returns = re[re.length - 1];
                 returns = returns.substring(0, returns.length() - 1);
                 Po.add(returns);
+                Log.d("dusss", "algorithm() returned: " + Po);
                 pas2 = Po.get(random.nextInt(Po.size()));
                 if (ListA.contains(pas2)) {
                     pas2 = Po.get(random.nextInt(Po.size()));
