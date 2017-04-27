@@ -87,6 +87,7 @@ public class StreetdanceClass extends AppCompatActivity {
     ArrayList<String> ListA;
     int index1;
     int index2;
+    String fluent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -341,7 +342,7 @@ public class StreetdanceClass extends AppCompatActivity {
         String Stap10 = stap10.getText().toString();
         String Stap11 = stap11.getText().toString();
 
-        ArrayList<String> ListA = new ArrayList<>();
+        ListA = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
 
         ListA.add(Stap1);
@@ -368,18 +369,21 @@ public class StreetdanceClass extends AppCompatActivity {
         ListNew.add(Stap10);
         ListNew.add(Stap11);
 
+
         String returnValue = "";
         String returns;
         Random random = new Random();
         int index = random.nextInt(ListA.size());
 
         String ratata = ListA.get(index);
+        Log.d("ratata", "algorithm() returned: " + ratata);
         String sja;
         String sjo = "";
-
+        Log.d("hoebizar", "algorithm() returned: " + ListA);
 
         if (ratata.equals("Losse pas")) {
             body();
+
             final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
             builder
                     .setMessage("Dit is nu je choreografie: \r\n" + ListA +
@@ -393,59 +397,60 @@ public class StreetdanceClass extends AppCompatActivity {
                         }
                     })
                     .show();
-        }
+        } else {
 
-        for (List<String> algor : Algo2) {
-            if (algor.toString().contains(ratata)) {
-                String r[] = algor.toString().split(",");
-                returns = r[r.length - 1];
-                sja = returns.substring(0, returns.length() - 1);
-                if (sja.equals(ratata)) {
-                    sjo = r[0];
-                    sjo = sjo.substring(1);
+            for (List<String> algor : Algo2) {
+                if (algor.toString().contains(ratata)) {
+                    String r[] = algor.toString().split(",");
+                    returns = r[r.length - 1];
+                    sja = returns.substring(0, returns.length() - 1);
+                    if (sja.equals(ratata)) {
+                        sjo = r[0];
+                        sjo = sjo.substring(1);
+                    }
                 }
-            }
-
-            if (algor.toString().contains(sjo)) {
-                String re[] = algor.toString().split(",");
-                returns = re[re.length - 1];
-                returns = returns.substring(0, returns.length() - 1);
-                Po.add(returns);
-                pas2 = Po.get(random.nextInt(Po.size()));
-                if (ListA.contains(pas2)) {
+                if (algor.toString().contains(sjo)) {
+                    String re[] = algor.toString().split(",");
+                    returns = re[re.length - 1];
+                    returns = returns.substring(0, returns.length() - 1);
+                    Po.add(returns);
                     pas2 = Po.get(random.nextInt(Po.size()));
                     if (ListA.contains(pas2)) {
                         pas2 = Po.get(random.nextInt(Po.size()));
                         if (ListA.contains(pas2)) {
                             pas2 = Po.get(random.nextInt(Po.size()));
+                            if (ListA.contains(pas2)) {
+                                pas2 = Po.get(random.nextInt(Po.size()));
+                            }
                         }
                     }
                 }
+
+                if (algor.toString().contains(pas2)) {
+                    String result[] = algor.toString().split(",");
+                    returnValue = result[0];
+                    returnValue = returnValue.substring(1);
+                }
             }
+            //output = e.g. General
+            if (sjo.equals(returnValue)) {
+                ListNew.set(index, pas2);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
+                builder
+                        .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                                "\r\nverander je choreografie naar: \r\n" + ListNew)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
 
-            if (algor.toString().contains(pas2)) {
-                String result[] = algor.toString().split(",");
-                returnValue = result[0];
-                returnValue = returnValue.substring(1);
             }
-
+            }
         }
-        //output = e.g. General
-        if (sjo.equals(returnValue)) {
-            ListNew.set(index, pas2);
-            final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
-            builder
-                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                            "\r\nverander je choreografie naar: \r\n" + ListNew)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                        }
-                    })
-                    .show();
-
-        }
-    }
 
     private String getJSON(Context context) {
         String str = "";
@@ -506,11 +511,13 @@ public class StreetdanceClass extends AppCompatActivity {
     public void body() {
 
         getRandoms();
+        for (int i = 0; i < ListA.size(); i++) {
+            ListA.get(i);
+        }
 
-        if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)
-                || (return111.equals(return111)) || (return222.equals(return222)) || (return333.equals(return333))) {
+        if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)) {
             Log.d("jajaja", "body() returned: " + return111 + return222 + return333);
-            getRandoms();
+            body();
         }
 
         if (return1.equals("Fluent") || return2.equals("Fluent") || return3.equals("Fluent")) {
@@ -519,19 +526,35 @@ public class StreetdanceClass extends AppCompatActivity {
                 return11 = return11.substring(1);
                 return22 = "";
                 return33 = "";
+                fluent = return11;
+
             }
             if (return2.equals("Fluent")) {
                 return22 = xsecond[0];
                 return22 = return22.substring(1);
                 return11 = "";
                 return33 = "";
+                fluent = return22;
             }
             if (return3.equals("Fluent")) {
                 return33 = xthird[0];
                 return33 = return33.substring(1);
                 return22 = "";
                 return11 = "";
+                fluent = return33;
             }
+            final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
+            builder
+                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                            "\r\nverander een losse pas naar: \r\n" + fluent)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            dialog.cancel();
+                        }
+                    })
+                    .show();
         }
 
         // if everything is static and not the same bodypart; give description
@@ -575,22 +598,25 @@ public class StreetdanceClass extends AppCompatActivity {
         return333 = xthird[1];
     }
 
-    public void algo(View view) {
+    public void algo(View view) throws InterruptedException {
         double d = Math.random() * 100;
         Log.d("ikben", "algo() returned: " + d);
         if ((d < 65)) {
             Log.d("ikbenhier", "algo() returned: " + d);
             Button btn;
             btn = (Button) findViewById(R.id.button5);
+
             btn.performClick();
         }
         if ((65 < d && d < 76)) {
             Log.d("ikbenhierhoor", "algo() returned: " + d);
             Button btn;
             btn = (Button) findViewById(R.id.okey);
+
             btn.performClick();
         }
         if ((76 < d && d < 101)) {
+
             TextView stap1 = (TextView) textView.getSelectedView();
             TextView stap2 = (TextView) textView2.getSelectedView();
             TextView stap3 = (TextView) textView3.getSelectedView();
@@ -658,8 +684,10 @@ public class StreetdanceClass extends AppCompatActivity {
             String tra;
             String tro = "";
 
+
             if (ratata.equals("Losse pas")) {
                 body();
+
                 final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
                 builder
                         .setMessage("Dit is nu je choreografie: \r\n" + ListA +
@@ -674,6 +702,7 @@ public class StreetdanceClass extends AppCompatActivity {
                         })
                         .show();
             }
+
 
             for (List<String> algor : Algo2) {
                 if (algor.toString().contains(ratata)) {
@@ -757,9 +786,15 @@ public class StreetdanceClass extends AppCompatActivity {
                             })
                             .show();
                 }
-
             }
-
         }
     }
 }
+
+/* problemen:
+- eens in de zoveel tijd pakt ie de button niet (zowel 1 als 2); dus ergens kan 'ie blijven hangen in
+if statement
+- losse pas werkt nog niet vlekkeloos
+- voeg een pagina toe waarin dansstijl en pas aangegeven kan worden en dat er dan een lijst met suggesties verschijnt
+- voeg het algoritme toe aan de andere dansstijlen (als het helemaal werkt)
+ */

@@ -20,5 +20,10 @@
         <item>Bestaand danspas</item>
         <item>Losse beweging</item>
     </string-array>
+    <string-array name="dansstijl2">
+        <item>Ballet</item>
+        <item>Modern</item>
+        <item>Streetdance</item>
+    </string-array>
 
 </resources>

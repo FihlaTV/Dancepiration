@@ -6,8 +6,10 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -51,6 +53,13 @@ public class BalletClass extends AppCompatActivity {
     Spinner Spinner5;
     Spinner Spinner6;
     JSONArray art_objects;
+    String pas3 = "";
+    ArrayList<String> Zo = new ArrayList<>();
+    ArrayList<String> Po = new ArrayList<>();
+    ArrayList<String> ListA;
+    int index1;
+    int index2;
+    Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +113,7 @@ public class BalletClass extends AppCompatActivity {
                 beschrijving = tijd.getString("Beschrijving");
 
                 if (dancestyle.equals("Ballet")) {
-                    if (typepas.equals("Startpositie")){
+                    if (typepas.equals("Startpositie")) {
                         beginPos.add(beschrijving);
                     }
 
@@ -344,36 +353,212 @@ public class BalletClass extends AppCompatActivity {
                     sjo = sjo.substring(1);
                 }
             }
-                    if (algor.toString().contains(sjo)) {
-                        String re[] = algor.toString().split(",");
-                        returns = re[re.length - 1];
-                        returns = returns.substring(0, returns.length() - 1);
-                        Po.add(returns);
+            if (algor.toString().contains(sjo)) {
+                String re[] = algor.toString().split(",");
+                returns = re[re.length - 1];
+                returns = returns.substring(0, returns.length() - 1);
+                Po.add(returns);
+                pas2 = Po.get(random.nextInt(Po.size()));
+                if (ListA.contains(pas2)) {
+                    pas2 = Po.get(random.nextInt(Po.size()));
+                    if (ListA.contains(pas2)) {
+                        pas2 = Po.get(random.nextInt(Po.size()));
+                        if (ListA.contains(pas2)) {
+                            pas2 = Po.get(random.nextInt(Po.size()));
+                        }
+                    }
+                }
+            }
+
+            if (algor.toString().contains(pas2)) {
+                String result[] = algor.toString().split(",");
+                returnValue = result[0];
+                returnValue = returnValue.substring(1);
+            }
+        }
+        //output = e.g. General
+        if (sjo.equals(returnValue)) {
+            ListNew.set(index, pas2);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+            builder
+                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                            "\r\nverander je choreografie naar: \r\n" + ListNew)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            dialog.cancel();
+                        }
+                    })
+                    .show();
+
+        }
+    }
+
+    public void random() {
+        index1 = random.nextInt(ListA.size());
+        index2 = random.nextInt(ListA.size());
+    }
+
+    public void algo(View view) throws InterruptedException {
+        double d = Math.random() * 100;
+        Log.d("ikben", "algo() returned: " + d);
+        if ((d < 65)) {
+            Log.d("ikbenhier", "algo() returned: " + d);
+            Button btn;
+            btn = (Button) findViewById(R.id.button5);
+
+            btn.performClick();
+        }
+        if ((65 < d && d < 76)) {
+            Log.d("ikbenhierhoor", "algo() returned: " + d);
+            Button btn;
+            btn = (Button) findViewById(R.id.okey);
+
+            btn.performClick();
+        }
+        if ((76 < d && d < 101)) {
+            TextView stap1 = (TextView) textView.getSelectedView();
+            TextView stap2 = (TextView) textView2.getSelectedView();
+            TextView stap3 = (TextView) textView3.getSelectedView();
+            TextView stap4 = (TextView) textView4.getSelectedView();
+            TextView stap5 = (TextView) textView5.getSelectedView();
+            TextView stap6 = (TextView) Spinner.getSelectedView();
+            TextView stap7 = (TextView) Spinner2.getSelectedView();
+            TextView stap8 = (TextView) Spinner3.getSelectedView();
+            TextView stap9 = (TextView) Spinner4.getSelectedView();
+            TextView stap10 = (TextView) Spinner5.getSelectedView();
+            TextView stap11 = (TextView) Spinner6.getSelectedView();
+            String Stap1 = stap1.getText().toString();
+            String Stap2 = stap2.getText().toString();
+            String Stap3 = stap3.getText().toString();
+            String Stap4 = stap4.getText().toString();
+            String Stap5 = stap5.getText().toString();
+            String Stap6 = stap6.getText().toString();
+            String Stap7 = stap7.getText().toString();
+            String Stap8 = stap8.getText().toString();
+            String Stap9 = stap9.getText().toString();
+            String Stap10 = stap10.getText().toString();
+            String Stap11 = stap11.getText().toString();
+
+
+            ListA = new ArrayList<>();
+            ArrayList<String> ListN = new ArrayList<>();
+            ListA.add(Stap1);
+            ListA.add(Stap2);
+            ListA.add(Stap3);
+            ListA.add(Stap4);
+            ListA.add(Stap5);
+            ListA.add(Stap6);
+            ListA.add(Stap7);
+            ListA.add(Stap8);
+            ListA.add(Stap9);
+            ListA.add(Stap10);
+            ListA.add(Stap11);
+
+            ListN.add(Stap1);
+            ListN.add(Stap2);
+            ListN.add(Stap3);
+            ListN.add(Stap4);
+            ListN.add(Stap5);
+            ListN.add(Stap6);
+            ListN.add(Stap7);
+            ListN.add(Stap8);
+            ListN.add(Stap9);
+            ListN.add(Stap10);
+            ListN.add(Stap11);
+
+            String returnValue = "";
+            String returns;
+            String returnVal = "";
+            Random random = new Random();
+            random();
+
+            if (index1 == index2) {
+                random();
+            }
+
+            String ratata = ListA.get(index1);
+            String ratat = ListA.get(index2);
+            String sja;
+            String sjo = "";
+            String tra;
+            String tro = "";
+
+
+            for (List<String> algor : Algo2) {
+                if (algor.toString().contains(ratata)) {
+                    String r[] = algor.toString().split(",");
+                    returns = r[r.length - 1];
+                    sja = returns.substring(0, returns.length() - 1);
+                    if (sja.equals(ratata)) {
+                        sjo = r[0];
+                        sjo = sjo.substring(1);
+                    }
+                }
+                if (algor.toString().contains(ratat)) {
+                    String r[] = algor.toString().split(",");
+                    returns = r[r.length - 1];
+                    tra = returns.substring(0, returns.length() - 1);
+                    if (tra.equals(ratat)) {
+                        tro = r[0];
+                        tro = tro.substring(1);
+                    }
+                }
+                if (algor.toString().contains(sjo)) {
+                    String re[] = algor.toString().split(",");
+                    returns = re[re.length - 1];
+                    returns = returns.substring(0, returns.length() - 1);
+                    Po.add(returns);
+                    pas2 = Po.get(random.nextInt(Po.size()));
+                    if (ListA.contains(pas2)) {
                         pas2 = Po.get(random.nextInt(Po.size()));
                         if (ListA.contains(pas2)) {
                             pas2 = Po.get(random.nextInt(Po.size()));
                             if (ListA.contains(pas2)) {
                                 pas2 = Po.get(random.nextInt(Po.size()));
-                                if (ListA.contains(pas2)) {
-                                    pas2 = Po.get(random.nextInt(Po.size()));
-                                }
                             }
                         }
                     }
-
-                    if (algor.toString().contains(pas2)) {
-                        String result[] = algor.toString().split(",");
-                        returnValue = result[0];
-                        returnValue = returnValue.substring(1);
+                }
+                if (algor.toString().contains(tro)) {
+                    String re[] = algor.toString().split(",");
+                    returns = re[re.length - 1];
+                    returns = returns.substring(0, returns.length() - 1);
+                    Zo.add(returns);
+                    pas3 = Zo.get(random.nextInt(Zo.size()));
+                    if (ListA.contains(pas3)) {
+                        pas3 = Zo.get(random.nextInt(Zo.size()));
+                        if (ListA.contains(pas3)) {
+                            pas3 = Zo.get(random.nextInt(Zo.size()));
+                            if (ListA.contains(pas3)) {
+                                pas3 = Zo.get(random.nextInt(Zo.size()));
+                            }
+                        }
                     }
                 }
-                //output = e.g. General
-                if (sjo.equals(returnValue)) {
-                    ListNew.set(index, pas2);
+
+                if (algor.toString().contains(pas2)) {
+                    String result[] = algor.toString().split(",");
+                    returnValue = result[0];
+                    returnValue = returnValue.substring(1);
+                }
+
+                if (algor.toString().contains(pas3)) {
+                    String result[] = algor.toString().split(",");
+                    returnVal = result[0];
+                    returnVal = returnVal.substring(1);
+                }
+            }
+
+            if (tro.equals(returnVal)) {
+                if (sjo.equals(returnValue)){
+                    ListN.set(index1, pas2);
+                    ListN.set(index2, pas3);
                     final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                     builder
                             .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                    "\r\nverander je choreografie naar: \r\n" + ListNew)
+                                    "\r\nverander je choreografie naar: \r\n" + ListN)
                             .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
@@ -382,7 +567,8 @@ public class BalletClass extends AppCompatActivity {
                                 }
                             })
                             .show();
-
                 }
             }
         }
+        }
+    }

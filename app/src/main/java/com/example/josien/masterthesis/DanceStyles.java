@@ -51,4 +51,11 @@ public class DanceStyles extends AppCompatActivity {
         bodypart.putExtra("start_screen", 500);
         startActivity(bodypart);
     }
+
+    public void variaties(View view){
+        Intent variaties = new Intent(this, ChangeStep.class);
+
+        variaties.putExtra("start_screen", 500);
+        startActivity(variaties);
+    }
 }
