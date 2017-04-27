@@ -34,11 +34,15 @@ public class BalletClass extends AppCompatActivity {
     String typepas;
     String beschrijving;
     String[] combi;
+    String sjo="";
+    String returnValue;
+    String returns;
     ArrayList<String> responseList = new ArrayList<>();
     ArrayList<String> beginPos = new ArrayList<>();
     ArrayList<String> Typepas;
     List<String> c;
     List<List<String>> Algo2 = new ArrayList<>();
+    ArrayList<String> ListA = new ArrayList<>();
     String pas1;
     String pas2 = "";
     Spinner textView;
@@ -56,7 +60,6 @@ public class BalletClass extends AppCompatActivity {
     String pas3 = "";
     ArrayList<String> Zo = new ArrayList<>();
     ArrayList<String> Po = new ArrayList<>();
-    ArrayList<String> ListA;
     int index1;
     int index2;
     Random random = new Random();
@@ -90,6 +93,7 @@ public class BalletClass extends AppCompatActivity {
     }
 
     public void parseJSON() {
+        Algo2.clear();
         JSONObject json = new JSONObject();
 
 
@@ -307,9 +311,10 @@ public class BalletClass extends AppCompatActivity {
         String Stap10 = stap10.getText().toString();
         String Stap11 = stap11.getText().toString();
 
-        ArrayList<String> Po = new ArrayList<>();
-        ArrayList<String> ListA = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
+        ArrayList<String> ListA = new ArrayList<>();
+        ArrayList<String> Po = new ArrayList<>();
+
         ListA.add(Stap1);
         ListA.add(Stap2);
         ListA.add(Stap3);
@@ -334,14 +339,11 @@ public class BalletClass extends AppCompatActivity {
         ListNew.add(Stap10);
         ListNew.add(Stap11);
 
-        String returnValue = "";
-        String returns;
         Random random = new Random();
         int index = random.nextInt(ListA.size());
 
         String ratata = ListA.get(index);
         String sja;
-        String sjo = "";
 
         for (List<String> algor : Algo2) {
             if (algor.toString().contains(ratata)) {
@@ -353,48 +355,48 @@ public class BalletClass extends AppCompatActivity {
                     sjo = sjo.substring(1);
                 }
             }
-            if (algor.toString().contains(sjo)) {
-                String re[] = algor.toString().split(",");
-                returns = re[re.length - 1];
-                returns = returns.substring(0, returns.length() - 1);
-                Po.add(returns);
-                Log.d("dusss", "algorithm() returned: " + Po);
-                pas2 = Po.get(random.nextInt(Po.size()));
-                if (ListA.contains(pas2)) {
+                if (algor.toString().contains(sjo)) {
+                    String re[] = algor.toString().split(",");
+                    returns = re[re.length - 1];
+                    returns = returns.substring(0, returns.length() - 1);
+                    Po.add(returns);
+                    Log.d("dusss", "algorithm() returned: " + Po);
                     pas2 = Po.get(random.nextInt(Po.size()));
                     if (ListA.contains(pas2)) {
                         pas2 = Po.get(random.nextInt(Po.size()));
                         if (ListA.contains(pas2)) {
                             pas2 = Po.get(random.nextInt(Po.size()));
+                            if (ListA.contains(pas2)) {
+                                pas2 = Po.get(random.nextInt(Po.size()));
+                            }
                         }
                     }
                 }
+
+                if (algor.toString().contains(pas2)) {
+                    String result[] = algor.toString().split(",");
+                    returnValue = result[0];
+                    returnValue = returnValue.substring(1);
+                }
+            }
+            //output = e.g. General
+            if (sjo.equals(returnValue)) {
+                ListNew.set(index, pas2);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+                builder
+                        .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                                "\r\nverander je choreografie naar: \r\n" + ListNew)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+
+            }
             }
 
-            if (algor.toString().contains(pas2)) {
-                String result[] = algor.toString().split(",");
-                returnValue = result[0];
-                returnValue = returnValue.substring(1);
-            }
-        }
-        //output = e.g. General
-        if (sjo.equals(returnValue)) {
-            ListNew.set(index, pas2);
-            final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
-            builder
-                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                            "\r\nverander je choreografie naar: \r\n" + ListNew)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                            dialog.cancel();
-                        }
-                    })
-                    .show();
-
-        }
-    }
 
     public void random() {
         index1 = random.nextInt(ListA.size());
