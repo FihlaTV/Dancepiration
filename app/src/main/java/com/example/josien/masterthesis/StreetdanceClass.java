@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,7 +28,7 @@ import java.util.Random;
 /**
  * Created by Josien on 25-4-2017.
  */
-public class StreetdanceClass extends AppCompatActivity{
+public class StreetdanceClass extends AppCompatActivity {
 
     String dancestyle;
     String typepas;
@@ -40,6 +41,7 @@ public class StreetdanceClass extends AppCompatActivity{
     List<List<String>> Algo2 = new ArrayList<>();
     String pas1;
     String pas2 = "";
+    String pas3 = "";
     android.widget.Spinner textView;
     Spinner textView2;
     Spinner textView3;
@@ -80,7 +82,11 @@ public class StreetdanceClass extends AppCompatActivity{
     List<String> List1;
     List<List<String>> List2 = new ArrayList<>();
     ArrayList<String> allbodyparts = new ArrayList<>();
-
+    ArrayList<String> Po = new ArrayList<>();
+    ArrayList<String> Zo = new ArrayList<>();
+    ArrayList<String> ListA;
+    int index1;
+    int index2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,7 +142,7 @@ public class StreetdanceClass extends AppCompatActivity{
                 beschrijving = tijd.getString("Beschrijving");
 
                 if (dancestyle.equals("Streetdance")) {
-                    if (typepas.equals("Startpositie")){
+                    if (typepas.equals("Startpositie")) {
                         beginPos.add(beschrijving);
                     }
 
@@ -304,6 +310,11 @@ public class StreetdanceClass extends AppCompatActivity{
                 .show();
     }
 
+    public void random() {
+        index1 = random.nextInt(ListA.size());
+        index2 = random.nextInt(ListA.size());
+    }
+
 
     public void algorithm(View view) {
 
@@ -330,9 +341,9 @@ public class StreetdanceClass extends AppCompatActivity{
         String Stap10 = stap10.getText().toString();
         String Stap11 = stap11.getText().toString();
 
-        ArrayList<String> Po = new ArrayList<>();
         ArrayList<String> ListA = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
+
         ListA.add(Stap1);
         ListA.add(Stap2);
         ListA.add(Stap3);
@@ -367,13 +378,13 @@ public class StreetdanceClass extends AppCompatActivity{
         String sjo = "";
 
 
-        if (ratata.equals("Losse pas")){
+        if (ratata.equals("Losse pas")) {
             body();
             final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
             builder
                     .setMessage("Dit is nu je choreografie: \r\n" + ListA +
                             "\r\nverander een losse pas naar: \r\n" + return11 +
-                    " "+ return22 + " " + return33)
+                            " " + return22 + " " + return33)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
@@ -394,6 +405,7 @@ public class StreetdanceClass extends AppCompatActivity{
                     sjo = sjo.substring(1);
                 }
             }
+
             if (algor.toString().contains(sjo)) {
                 String re[] = algor.toString().split(",");
                 returns = re[re.length - 1];
@@ -416,6 +428,7 @@ public class StreetdanceClass extends AppCompatActivity{
                 returnValue = result[0];
                 returnValue = returnValue.substring(1);
             }
+
         }
         //output = e.g. General
         if (sjo.equals(returnValue)) {
@@ -427,14 +440,13 @@ public class StreetdanceClass extends AppCompatActivity{
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                            dialog.cancel();
                         }
                     })
                     .show();
 
         }
     }
+
     private String getJSON(Context context) {
         String str = "";
         try {
@@ -491,31 +503,30 @@ public class StreetdanceClass extends AppCompatActivity{
         }
     }
 
-    public void body(){
+    public void body() {
 
         getRandoms();
 
         if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)
-                || (return111.equals(return111)) || (return222.equals(return222)) || (return333.equals(return333)))
-        {
+                || (return111.equals(return111)) || (return222.equals(return222)) || (return333.equals(return333))) {
             Log.d("jajaja", "body() returned: " + return111 + return222 + return333);
             getRandoms();
         }
 
-        if (return1.equals("Fluent") || return2.equals("Fluent") || return3.equals("Fluent")){
-            if (return1.equals("Fluent")){
+        if (return1.equals("Fluent") || return2.equals("Fluent") || return3.equals("Fluent")) {
+            if (return1.equals("Fluent")) {
                 return11 = xfirst[0];
                 return11 = return11.substring(1);
-                return22 ="";
-                return33 ="";
+                return22 = "";
+                return33 = "";
             }
-            if (return2.equals("Fluent")){
+            if (return2.equals("Fluent")) {
                 return22 = xsecond[0];
                 return22 = return22.substring(1);
-                return11="";
-                return33="";
+                return11 = "";
+                return33 = "";
             }
-            if (return3.equals("Fluent")){
+            if (return3.equals("Fluent")) {
                 return33 = xthird[0];
                 return33 = return33.substring(1);
                 return22 = "";
@@ -524,7 +535,7 @@ public class StreetdanceClass extends AppCompatActivity{
         }
 
         // if everything is static and not the same bodypart; give description
-        if (return1.equals(return2) && (return2.equals(return3))){
+        if (return1.equals(return2) && (return2.equals(return3))) {
             return11 = xfirst[0];
             return11 = return11.substring(1);
 
@@ -536,14 +547,14 @@ public class StreetdanceClass extends AppCompatActivity{
         }
     }
 
-    public void getRandoms(){
+    public void getRandoms() {
         firstrandom = random.nextInt(List2.size());
         secondrandom = random.nextInt(List2.size());
         thirdrandom = random.nextInt(List2.size());
         first = List2.get(firstrandom);
         second = List2.get(secondrandom);
         third = List2.get(thirdrandom);
-        xfirst =first.toString().split(",");
+        xfirst = first.toString().split(",");
         xsecond = second.toString().split(",");
         xthird = third.toString().split(",");
 
@@ -552,11 +563,11 @@ public class StreetdanceClass extends AppCompatActivity{
         return1 = xfirst[xfirst.length - 1];
         return1 = return1.substring(0, return1.length() - 1);
 
-        return2 = xsecond[xsecond.length -1];
-        return2 = return2.substring(0, return2.length() -1);
+        return2 = xsecond[xsecond.length - 1];
+        return2 = return2.substring(0, return2.length() - 1);
 
-        return3 = xthird[xthird.length-1];
-        return3 = return3.substring(0, return3.length() -1);
+        return3 = xthird[xthird.length - 1];
+        return3 = return3.substring(0, return3.length() - 1);
 
         //checks for same bodypartnumber
         return111 = xfirst[1];
@@ -564,16 +575,191 @@ public class StreetdanceClass extends AppCompatActivity{
         return333 = xthird[1];
     }
 
-    public void algo(View view){
+    public void algo(View view) {
         double d = Math.random() * 100;
-        if ((d -= 80) < 0) {
-            //donormalthing
+        Log.d("ikben", "algo() returned: " + d);
+        if ((d < 65)) {
+            Log.d("ikbenhier", "algo() returned: " + d);
+            Button btn;
+            btn = (Button) findViewById(R.id.button5);
+            btn.performClick();
         }
-        if ((d -= 20) < 0) {
-            // dosomething else
-            // do something completely random
-            // do a 'losse pas'
+        if ((65 < d && d < 76)) {
+            Log.d("ikbenhierhoor", "algo() returned: " + d);
+            Button btn;
+            btn = (Button) findViewById(R.id.okey);
+            btn.performClick();
         }
+        if ((76 < d && d < 101)) {
+            TextView stap1 = (TextView) textView.getSelectedView();
+            TextView stap2 = (TextView) textView2.getSelectedView();
+            TextView stap3 = (TextView) textView3.getSelectedView();
+            TextView stap4 = (TextView) textView4.getSelectedView();
+            TextView stap5 = (TextView) textView5.getSelectedView();
+            TextView stap6 = (TextView) Spinner.getSelectedView();
+            TextView stap7 = (TextView) Spinner2.getSelectedView();
+            TextView stap8 = (TextView) Spinner3.getSelectedView();
+            TextView stap9 = (TextView) Spinner4.getSelectedView();
+            TextView stap10 = (TextView) Spinner5.getSelectedView();
+            TextView stap11 = (TextView) Spinner6.getSelectedView();
+            String Stap1 = stap1.getText().toString();
+            String Stap2 = stap2.getText().toString();
+            String Stap3 = stap3.getText().toString();
+            String Stap4 = stap4.getText().toString();
+            String Stap5 = stap5.getText().toString();
+            String Stap6 = stap6.getText().toString();
+            String Stap7 = stap7.getText().toString();
+            String Stap8 = stap8.getText().toString();
+            String Stap9 = stap9.getText().toString();
+            String Stap10 = stap10.getText().toString();
+            String Stap11 = stap11.getText().toString();
 
+
+            ListA = new ArrayList<>();
+            ArrayList<String> ListN = new ArrayList<>();
+            ListA.add(Stap1);
+            ListA.add(Stap2);
+            ListA.add(Stap3);
+            ListA.add(Stap4);
+            ListA.add(Stap5);
+            ListA.add(Stap6);
+            ListA.add(Stap7);
+            ListA.add(Stap8);
+            ListA.add(Stap9);
+            ListA.add(Stap10);
+            ListA.add(Stap11);
+
+            ListN.add(Stap1);
+            ListN.add(Stap2);
+            ListN.add(Stap3);
+            ListN.add(Stap4);
+            ListN.add(Stap5);
+            ListN.add(Stap6);
+            ListN.add(Stap7);
+            ListN.add(Stap8);
+            ListN.add(Stap9);
+            ListN.add(Stap10);
+            ListN.add(Stap11);
+
+            String returnValue = "";
+            String returns;
+            String returnVal = "";
+            Random random = new Random();
+            random();
+
+            if (index1 == index2) {
+                random();
+            }
+
+            String ratata = ListA.get(index1);
+            String ratat = ListA.get(index2);
+            String sja;
+            String sjo = "";
+            String tra;
+            String tro = "";
+
+            if (ratata.equals("Losse pas")) {
+                body();
+                final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
+                builder
+                        .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                                "\r\nverander een losse pas naar: \r\n" + return11 +
+                                " " + return22 + " " + return33)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
+            }
+
+            for (List<String> algor : Algo2) {
+                if (algor.toString().contains(ratata)) {
+                    String r[] = algor.toString().split(",");
+                    returns = r[r.length - 1];
+                    sja = returns.substring(0, returns.length() - 1);
+                    if (sja.equals(ratata)) {
+                        sjo = r[0];
+                        sjo = sjo.substring(1);
+                    }
+                }
+                if (algor.toString().contains(ratat)) {
+                    String r[] = algor.toString().split(",");
+                    returns = r[r.length - 1];
+                    tra = returns.substring(0, returns.length() - 1);
+                    if (tra.equals(ratat)) {
+                        tro = r[0];
+                        tro = tro.substring(1);
+                    }
+                }
+                if (algor.toString().contains(sjo)) {
+                    String re[] = algor.toString().split(",");
+                    returns = re[re.length - 1];
+                    returns = returns.substring(0, returns.length() - 1);
+                    Po.add(returns);
+                    pas2 = Po.get(random.nextInt(Po.size()));
+                    if (ListA.contains(pas2)) {
+                        pas2 = Po.get(random.nextInt(Po.size()));
+                        if (ListA.contains(pas2)) {
+                            pas2 = Po.get(random.nextInt(Po.size()));
+                            if (ListA.contains(pas2)) {
+                                pas2 = Po.get(random.nextInt(Po.size()));
+                            }
+                        }
+                    }
+                }
+                if (algor.toString().contains(tro)) {
+                    String re[] = algor.toString().split(",");
+                    returns = re[re.length - 1];
+                    returns = returns.substring(0, returns.length() - 1);
+                    Zo.add(returns);
+                    pas3 = Zo.get(random.nextInt(Zo.size()));
+                    if (ListA.contains(pas3)) {
+                        pas3 = Zo.get(random.nextInt(Zo.size()));
+                        if (ListA.contains(pas3)) {
+                            pas3 = Zo.get(random.nextInt(Zo.size()));
+                            if (ListA.contains(pas3)) {
+                                pas3 = Zo.get(random.nextInt(Zo.size()));
+                            }
+                        }
+                    }
+                }
+
+                if (algor.toString().contains(pas2)) {
+                    String result[] = algor.toString().split(",");
+                    returnValue = result[0];
+                    returnValue = returnValue.substring(1);
+                }
+
+                if (algor.toString().contains(pas3)) {
+                    String result[] = algor.toString().split(",");
+                    returnVal = result[0];
+                    returnVal = returnVal.substring(1);
+                }
+            }
+
+            if (tro.equals(returnVal)) {
+                if (sjo.equals(returnValue)){
+                    ListN.set(index1, pas2);
+                    ListN.set(index2, pas3);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
+                    builder
+                            .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                                    "\r\nverander je choreografie naar: \r\n" + ListN)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                    dialog.cancel();
+                                }
+                            })
+                            .show();
+                }
+
+            }
+
+        }
     }
 }
