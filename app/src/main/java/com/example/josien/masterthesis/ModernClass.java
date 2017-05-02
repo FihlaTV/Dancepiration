@@ -369,46 +369,14 @@ public class ModernClass extends AppCompatActivity {
         String sja;
         String sjo = "";
 
-        for (List<String> algor : Algo2) {
-            if (algor.toString().contains(ratata)) {
-                String r[] = algor.toString().split(",");
-                returns = r[r.length - 1];
-                sja = returns.substring(0, returns.length() - 1);
-                if (sja.equals(ratata)) {
-                    sjo = r[0];
-                    sjo = sjo.substring(1);
-                }
-            }
-            if (algor.toString().contains(sjo)) {
-                String re[] = algor.toString().split(",");
-                returns = re[re.length - 1];
-                returns = returns.substring(0, returns.length() - 1);
-                Po.add(returns);
-                pas2 = Po.get(random.nextInt(Po.size()));
-                if (ListA.contains(pas2)) {
-                    pas2 = Po.get(random.nextInt(Po.size()));
-                    if (ListA.contains(pas2)) {
-                        pas2 = Po.get(random.nextInt(Po.size()));
-                        if (ListA.contains(pas2)) {
-                            pas2 = Po.get(random.nextInt(Po.size()));
-                        }
-                    }
-                }
-            }
+        if (ratata.equals("Losse pas")) {
+            body();
 
-            if (algor.toString().contains(pas2)) {
-                String result[] = algor.toString().split(",");
-                returnValue = result[0];
-                returnValue = returnValue.substring(1);
-            }
-        }
-        //output = e.g. General
-        if (sjo.equals(returnValue)) {
-            ListNew.set(index, pas2);
             final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
             builder
                     .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                            "\r\nverander je choreografie naar: \r\n" + ListNew)
+                            "\r\nverander een losse pas naar: \r\n" + return11 +
+                            " " + return22 + " " + return33)
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
@@ -417,7 +385,59 @@ public class ModernClass extends AppCompatActivity {
                         }
                     })
                     .show();
+        } else {
 
+
+            for (List<String> algor : Algo2) {
+                if (algor.toString().contains(ratata)) {
+                    String r[] = algor.toString().split(",");
+                    returns = r[r.length - 1];
+                    sja = returns.substring(0, returns.length() - 1);
+                    if (sja.equals(ratata)) {
+                        sjo = r[0];
+                        sjo = sjo.substring(1);
+                    }
+                }
+                if (algor.toString().contains(sjo)) {
+                    String re[] = algor.toString().split(",");
+                    returns = re[re.length - 1];
+                    returns = returns.substring(0, returns.length() - 1);
+                    Po.add(returns);
+                    pas2 = Po.get(random.nextInt(Po.size()));
+                    if (ListA.contains(pas2)) {
+                        pas2 = Po.get(random.nextInt(Po.size()));
+                        if (ListA.contains(pas2)) {
+                            pas2 = Po.get(random.nextInt(Po.size()));
+                            if (ListA.contains(pas2)) {
+                                pas2 = Po.get(random.nextInt(Po.size()));
+                            }
+                        }
+                    }
+                }
+
+                if (algor.toString().contains(pas2)) {
+                    String result[] = algor.toString().split(",");
+                    returnValue = result[0];
+                    returnValue = returnValue.substring(1);
+                }
+            }
+            //output = e.g. General
+            if (sjo.equals(returnValue)) {
+                ListNew.set(index, pas2);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+                builder
+                        .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                                "\r\nverander je choreografie naar: \r\n" + ListNew)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                                dialog.cancel();
+                            }
+                        })
+                        .show();
+
+            }
         }
     }
 
@@ -456,7 +476,6 @@ public class ModernClass extends AppCompatActivity {
         }
 
         if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)) {
-            Log.d("jajaja", "body() returned: " + return111 + return222 + return333);
             body();
         }
 
@@ -469,20 +488,21 @@ public class ModernClass extends AppCompatActivity {
                 fluent = return11;
 
             }
-            if (return2.equals("Fluent")) {
+            else if (return2.equals("Fluent")) {
                 return22 = xsecond[0];
                 return22 = return22.substring(1);
                 return11 = "";
                 return33 = "";
                 fluent = return22;
             }
-            if (return3.equals("Fluent")) {
+            else if (return3.equals("Fluent")) {
                 return33 = xthird[0];
                 return33 = return33.substring(1);
                 return22 = "";
                 return11 = "";
                 fluent = return33;
             }
+
             final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
             builder
                     .setMessage("Dit is nu je choreografie: \r\n" + ListA +
@@ -495,6 +515,7 @@ public class ModernClass extends AppCompatActivity {
                         }
                     })
                     .show();
+
         }
 
         // if everything is static and not the same bodypart; give description

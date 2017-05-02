@@ -543,18 +543,7 @@ public class StreetdanceClass extends AppCompatActivity {
                 return11 = "";
                 fluent = return33;
             }
-            final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
-            builder
-                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                            "\r\nverander een losse pas naar: \r\n" + fluent)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                            dialog.cancel();
-                        }
-                    })
-                    .show();
+
         }
 
         // if everything is static and not the same bodypart; give description
@@ -790,11 +779,3 @@ public class StreetdanceClass extends AppCompatActivity {
         }
     }
 }
-
-/* problemen:
-- eens in de zoveel tijd pakt ie de button niet (zowel 1 als 2); dus ergens kan 'ie blijven hangen in
-if statement
-- losse pas werkt nog niet vlekkeloos
-- voeg een pagina toe waarin dansstijl en pas aangegeven kan worden en dat er dan een lijst met suggesties verschijnt
-- voeg het algoritme toe aan de andere dansstijlen (als het helemaal werkt)
- */
