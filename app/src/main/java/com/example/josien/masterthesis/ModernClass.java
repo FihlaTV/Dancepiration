@@ -416,9 +416,27 @@ public class ModernClass extends AppCompatActivity {
                 }
 
                 if (algor.toString().contains(pas2)) {
-                    String result[] = algor.toString().split(",");
-                    returnValue = result[0];
-                    returnValue = returnValue.substring(1);
+                    if (pas2.equals("Losse pas")) {
+                        body();
+
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+                        builder
+                                .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                                        "\r\nVerander " + ratata + " naar \r\n" + return11 +
+                                        " " + return22 + " " + return33)
+                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.dismiss();
+                                        dialog.cancel();
+                                    }
+                                })
+                                .show();
+                    } else {
+                        String result[] = algor.toString().split(",");
+                        returnValue = result[0];
+                        returnValue = returnValue.substring(1);
+                    }
                 }
             }
             //output = e.g. General
