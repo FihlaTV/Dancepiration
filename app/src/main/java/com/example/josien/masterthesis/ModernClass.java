@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -293,15 +294,16 @@ public class ModernClass extends AppCompatActivity {
         }
 
         ListNew.set(index, pas1);
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
         builder
-                .setMessage("Dit is nu je choreografie: \r\n" + List +
-                        "\r\nverander je choreografie naar: \r\n" + ListNew)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setTitle("PROBEER DIT EENS")
+                .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+List+"</h1>"+
+                        "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListNew+"</h1>"))
+                .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-
+                        dialog.dismiss();
                     }
                 })
                 .show();
@@ -372,16 +374,17 @@ public class ModernClass extends AppCompatActivity {
         if (ratata.equals("Losse pas")) {
             body();
 
-            final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+            //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
             builder
-                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                            "\r\nverander een losse pas naar: \r\n" + return11 +
-                            " " + return22 + " " + return33)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    .setTitle("PROBEER DIT EENS")
+                    .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ ListA +"</h1>"+
+                            "\r\n" + "<br>" + "<h3>"+"verander een losse pas naar: " +"</h3>" + "\r\n" + "<br>" + "<h1>"+ return11 +
+                            " " + return22 + " " + return33 + "</h1>"))
+                    .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.dismiss();
-                            dialog.cancel();
                         }
                     })
                     .show();
@@ -419,16 +422,17 @@ public class ModernClass extends AppCompatActivity {
                     if (pas2.equals("Losse pas")) {
                         body();
 
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+                        final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+                        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                         builder
-                                .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                        "\r\nVerander " + ratata + " naar \r\n" + return11 +
-                                        " " + return22 + " " + return33)
-                                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                .setTitle("PROBEER DIT EENS")
+                                .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ ListA +"</h1>"+
+                                        "\r\n" + "<br>" + "<h3>"+"verander " + ratata + " naar"  +"</h3>" + "\r\n" + "<br>" + "<h1>"+ return11 +
+                                        " " + return22 + " " + return33 + "</h1>"))
+                                .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int id) {
                                         dialog.dismiss();
-                                        dialog.cancel();
                                     }
                                 })
                                 .show();
@@ -442,15 +446,16 @@ public class ModernClass extends AppCompatActivity {
             //output = e.g. General
             if (sjo.equals(returnValue)) {
                 ListNew.set(index, pas2);
-                final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+                //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                 builder
-                        .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                "\r\nverander je choreografie naar: \r\n" + ListNew)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        .setTitle("PROBEER DIT EENS")
+                        .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+
+                                "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListNew+"</h1>"))
+                        .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
-                                dialog.cancel();
                             }
                         })
                         .show();
@@ -640,16 +645,18 @@ public class ModernClass extends AppCompatActivity {
             if (ratata.equals("Losse pas")) {
                 body();
 
-                final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+                //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                 builder
-                        .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                "\r\nverander een losse pas naar: \r\n" + return11 +
-                                " " + return22 + " " + return33)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        .setTitle("PROBEER DIT EENS")
+                        .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ ListA +"</h1>"+
+                                "\r\n" + "<br>" + "<h3>"+"verander een losse pas naar: " +"</h3>" + "\r\n" + "<br>" + "<h1>"+ return11 +
+                                " " + return22 + " " + return33 + "</h1>"))
+                        .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
-                                dialog.cancel();
                             }
                         })
                         .show();
@@ -725,15 +732,16 @@ public class ModernClass extends AppCompatActivity {
                 if (sjo.equals(returnValue)){
                     ListN.set(index1, pas2);
                     ListN.set(index2, pas3);
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+                    //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                     builder
-                            .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                    "\r\nverander je choreografie naar: \r\n" + ListN)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setTitle("PROBEER DIT EENS")
+                            .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+
+                                    "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListN+"</h1>"))
+                            .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.dismiss();
-                                    dialog.cancel();
                                 }
                             })
                             .show();

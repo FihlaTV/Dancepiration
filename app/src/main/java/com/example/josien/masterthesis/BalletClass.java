@@ -277,14 +277,16 @@ public class BalletClass extends AppCompatActivity {
 
         ListNew.set(index, pas1);
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+        final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
+        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
         builder
-                .setMessage("Dit is nu je choreografie: \r\n" + List +
-                        "\r\nverander je choreografie naar: \r\n" + ListNew)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                .setTitle("PROBEER DIT EENS")
+                .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+List+"</h1>"+
+                        "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListNew+"</h1>"))
+                .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-
+                        dialog.dismiss();
                     }
                 })
                 .show();
@@ -387,15 +389,13 @@ public class BalletClass extends AppCompatActivity {
             //output = e.g. General
             if (sjo.equals(returnValue)) {
                 ListNew.set(index, pas2);
-                String text = ("Dit is nu je choreografie: \r\n\r\n" + ListA +
-                        "\r\n\r\n\r\nverander je choreografie naar: \r\n\r\n\r\n" + ListNew);
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
                 //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                 builder
                         .setTitle("PROBEER DIT EENS")
-                        .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<h1>"+ListA+"</h1>"+
-                                "\r\n\r\n\r\n" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n\r\n\r\n" + "<h1>"+ListNew+"</h1>"))
+                        .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+
+                                "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListNew+"</h1>"))
                         .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
@@ -566,15 +566,16 @@ public class BalletClass extends AppCompatActivity {
                 if (sjo.equals(returnValue)){
                     ListN.set(index1, pas2);
                     ListN.set(index2, pas3);
-                    final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
+                    //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                     builder
-                            .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                    "\r\nverander je choreografie naar: \r\n" + ListN)
-                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            .setTitle("PROBEER DIT EENS")
+                            .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+
+                                    "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListN+"</h1>"))
+                            .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int id) {
                                     dialog.dismiss();
-                                    dialog.cancel();
                                 }
                             })
                             .show();
