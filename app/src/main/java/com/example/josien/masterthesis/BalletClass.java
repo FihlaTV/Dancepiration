@@ -1,13 +1,18 @@
 package com.example.josien.masterthesis;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -382,18 +387,22 @@ public class BalletClass extends AppCompatActivity {
             //output = e.g. General
             if (sjo.equals(returnValue)) {
                 ListNew.set(index, pas2);
-                final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+                String text = ("Dit is nu je choreografie: \r\n\r\n" + ListA +
+                        "\r\n\r\n\r\nverander je choreografie naar: \r\n\r\n\r\n" + ListNew);
+
+                final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
+                //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                 builder
-                        .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                                "\r\nverander je choreografie naar: \r\n" + ListNew)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        .setTitle("PROBEER DIT EENS")
+                        .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<h1>"+ListA+"</h1>"+
+                                "\r\n\r\n\r\n" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n\r\n\r\n" + "<h1>"+ListNew+"</h1>"))
+                        .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int id) {
                                 dialog.dismiss();
                             }
                         })
                         .show();
-
             }
             }
 
@@ -405,7 +414,6 @@ public class BalletClass extends AppCompatActivity {
 
     public void algo(View view) throws InterruptedException {
         double d = Math.random() * 100;
-        Log.d("ikben", "algo() returned: " + d);
         if ((d < 65)) {
             Log.d("ikbenhier", "algo() returned: " + d);
             Button btn;
