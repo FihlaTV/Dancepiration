@@ -31,17 +31,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Startpositie"
-        android:id="@+id/textView4" />
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="27dp"
-        android:id="@+id/autocomplete" />
 
     <TextView
         android:layout_width="wrap_content"

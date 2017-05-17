@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -85,8 +86,6 @@ public class ChangeStep extends AppCompatActivity {
             // Loop through the items till it ends
             for (int i = 0; i < art_objects.length(); i++) {
                 JSONObject tijd = art_objects.getJSONObject(i);
-                String nummer = tijd.getString("Nummer");
-                String pasnaam = tijd.getString("Pasnaam");
                 dancestyle = tijd.getString("Style");
                 typepas = tijd.getString("TypePas");
                 beschrijving = tijd.getString("Beschrijving");
@@ -256,7 +255,19 @@ public class ChangeStep extends AppCompatActivity {
                 }
             }
         }
-
+        final AlertDialog.Builder builder = new AlertDialog.Builder(ChangeStep.this, R.style.AlertDialogCustom);
+        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+        builder
+                .setTitle("VARIATIES")
+                .setMessage(Html.fromHtml("<h3>"+"Dit zijn variaties op "+ ok +"</h3>" + ": " + "\r\n" + "<br>" + "<h1>"+Po+"</h1>"))
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+/*
             final AlertDialog.Builder builder = new AlertDialog.Builder(ChangeStep.this);
             builder
                     .setMessage("Dit zijn variaties op " + ok + ": " + Po)
@@ -267,6 +278,7 @@ public class ChangeStep extends AppCompatActivity {
                         }
                     })
                     .show();
+                    */
         }
 
     private String getJSONString(Context context) {

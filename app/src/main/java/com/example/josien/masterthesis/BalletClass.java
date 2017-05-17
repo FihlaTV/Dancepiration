@@ -128,11 +128,13 @@ public class BalletClass extends AppCompatActivity {
 
                     responseList.add(beschrijving);
 
+                    /*
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                             android.R.layout.simple_dropdown_item_1line, beginPos);
                     textView = (Spinner)
                             findViewById(R.id.autocomplete);
                     textView.setAdapter(adapter);
+                    */
 
                     ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                             android.R.layout.simple_dropdown_item_1line, responseList);
@@ -213,7 +215,7 @@ public class BalletClass extends AppCompatActivity {
 
     public void randomizer(View view) throws JSONException {
 
-        TextView stap1 = (TextView) textView.getSelectedView();
+        //TextView stap1 = (TextView) textView.getSelectedView();
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -224,7 +226,7 @@ public class BalletClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        String Stap1 = stap1.getText().toString();
+        //String Stap1 = stap1.getText().toString();
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -238,7 +240,7 @@ public class BalletClass extends AppCompatActivity {
 
         ArrayList<String> List = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
-        List.add(Stap1);
+        //List.add(Stap1);
         List.add(Stap2);
         List.add(Stap3);
         List.add(Stap4);
@@ -250,7 +252,7 @@ public class BalletClass extends AppCompatActivity {
         List.add(Stap10);
         List.add(Stap11);
 
-        ListNew.add(Stap1);
+        //ListNew.add(Stap1);
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -295,7 +297,7 @@ public class BalletClass extends AppCompatActivity {
 
     public void algorithm(View view) {
 
-        TextView stap1 = (TextView) textView.getSelectedView();
+        //TextView stap1 = (TextView) textView.getSelectedView();
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -306,7 +308,7 @@ public class BalletClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        String Stap1 = stap1.getText().toString();
+        //String Stap1 = stap1.getText().toString();
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -322,7 +324,7 @@ public class BalletClass extends AppCompatActivity {
         ArrayList<String> ListA = new ArrayList<>();
         ArrayList<String> Po = new ArrayList<>();
 
-        ListA.add(Stap1);
+        //ListA.add(Stap1);
         ListA.add(Stap2);
         ListA.add(Stap3);
         ListA.add(Stap4);
@@ -334,7 +336,7 @@ public class BalletClass extends AppCompatActivity {
         ListA.add(Stap10);
         ListA.add(Stap11);
 
-        ListNew.add(Stap1);
+        //ListNew.add(Stap1);
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -429,7 +431,7 @@ public class BalletClass extends AppCompatActivity {
             btn.performClick();
         }
         if ((76 < d && d < 101)) {
-            TextView stap1 = (TextView) textView.getSelectedView();
+            //TextView stap1 = (TextView) textView.getSelectedView();
             TextView stap2 = (TextView) textView2.getSelectedView();
             TextView stap3 = (TextView) textView3.getSelectedView();
             TextView stap4 = (TextView) textView4.getSelectedView();
@@ -440,7 +442,7 @@ public class BalletClass extends AppCompatActivity {
             TextView stap9 = (TextView) Spinner4.getSelectedView();
             TextView stap10 = (TextView) Spinner5.getSelectedView();
             TextView stap11 = (TextView) Spinner6.getSelectedView();
-            String Stap1 = stap1.getText().toString();
+            //String Stap1 = stap1.getText().toString();
             String Stap2 = stap2.getText().toString();
             String Stap3 = stap3.getText().toString();
             String Stap4 = stap4.getText().toString();
@@ -455,7 +457,7 @@ public class BalletClass extends AppCompatActivity {
 
             ListA = new ArrayList<>();
             ArrayList<String> ListN = new ArrayList<>();
-            ListA.add(Stap1);
+            //ListA.add(Stap1);
             ListA.add(Stap2);
             ListA.add(Stap3);
             ListA.add(Stap4);
@@ -467,7 +469,7 @@ public class BalletClass extends AppCompatActivity {
             ListA.add(Stap10);
             ListA.add(Stap11);
 
-            ListN.add(Stap1);
+            //ListN.add(Stap1);
             ListN.add(Stap2);
             ListN.add(Stap3);
             ListN.add(Stap4);

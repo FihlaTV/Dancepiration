@@ -55,9 +55,6 @@ public class ModernClass extends AppCompatActivity {
     Spinner Spinner5;
     Spinner Spinner6;
     JSONArray art_objects;
-    int index1;
-    int index2;
-    String fluent;
     Random random = new Random();
     String return1;
     String return2;
@@ -77,17 +74,28 @@ public class ModernClass extends AppCompatActivity {
     String[] xfirst;
     String[] xsecond;
     String[] xthird;
+    JSONArray body_parts;
+    String lichaamsdeelnummer;
+    String lichaamsdeel;
+    String beschrijvingbodypart;
+    String type_beweging;
+    String[] combination;
+    List<String> List1;
     List<List<String>> List2 = new ArrayList<>();
-    ArrayList<String> ListA;
+    ArrayList<String> allbodyparts = new ArrayList<>();
     ArrayList<String> Po = new ArrayList<>();
     ArrayList<String> Zo = new ArrayList<>();
-
+    ArrayList<String> ListA;
+    int index1;
+    int index2;
+    String fluent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ballet_activity);
+        setContentView(R.layout.modern_activity);
         parseJSON();
+        parseBodyParts();
     }
 
     private String getJSONString(Context context) {
@@ -129,24 +137,24 @@ public class ModernClass extends AppCompatActivity {
             // Loop through the items till it ends
             for (int i = 0; i < art_objects.length(); i++) {
                 JSONObject tijd = art_objects.getJSONObject(i);
-                String nummer = tijd.getString("Nummer");
-                String pasnaam = tijd.getString("Pasnaam");
                 dancestyle = tijd.getString("Style");
                 typepas = tijd.getString("TypePas");
                 beschrijving = tijd.getString("Beschrijving");
 
                 if (dancestyle.equals("Modern")) {
-                    if (typepas.equals("Startpositie")){
+                    if (typepas.equals("Startpositie")) {
                         beginPos.add(beschrijving);
                     }
 
                     responseList.add(beschrijving);
 
+                    /*
                     ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                             android.R.layout.simple_dropdown_item_1line, beginPos);
                     textView = (Spinner)
                             findViewById(R.id.autocomplete);
                     textView.setAdapter(adapter);
+                    */
 
                     ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                             android.R.layout.simple_dropdown_item_1line, responseList);
@@ -224,14 +232,10 @@ public class ModernClass extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public void random() {
-        index1 = random.nextInt(ListA.size());
-        index2 = random.nextInt(ListA.size());
-    }
 
     public void randomizer(View view) throws JSONException {
 
-        TextView stap1 = (TextView) textView.getSelectedView();
+        //TextView stap1 = (TextView) textView.getSelectedView();
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -242,7 +246,7 @@ public class ModernClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        String Stap1 = stap1.getText().toString();
+        //String Stap1 = stap1.getText().toString();
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -256,7 +260,7 @@ public class ModernClass extends AppCompatActivity {
 
         ArrayList<String> List = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
-        List.add(Stap1);
+        //List.add(Stap1);
         List.add(Stap2);
         List.add(Stap3);
         List.add(Stap4);
@@ -268,7 +272,7 @@ public class ModernClass extends AppCompatActivity {
         List.add(Stap10);
         List.add(Stap11);
 
-        ListNew.add(Stap1);
+        //ListNew.add(Stap1);
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -294,6 +298,7 @@ public class ModernClass extends AppCompatActivity {
         }
 
         ListNew.set(index, pas1);
+
         final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
         //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
         builder
@@ -309,10 +314,15 @@ public class ModernClass extends AppCompatActivity {
                 .show();
     }
 
+    public void random() {
+        index1 = random.nextInt(ListA.size());
+        index2 = random.nextInt(ListA.size());
+    }
+
 
     public void algorithm(View view) {
 
-        TextView stap1 = (TextView) textView.getSelectedView();
+        //TextView stap1 = (TextView) textView.getSelectedView();
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -323,7 +333,7 @@ public class ModernClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        String Stap1 = stap1.getText().toString();
+        //String Stap1 = stap1.getText().toString();
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -335,10 +345,10 @@ public class ModernClass extends AppCompatActivity {
         String Stap10 = stap10.getText().toString();
         String Stap11 = stap11.getText().toString();
 
-        ArrayList<String> Po = new ArrayList<>();
-        ArrayList<String> ListA = new ArrayList<>();
+        ListA = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
-        ListA.add(Stap1);
+
+        //ListA.add(Stap1);
         ListA.add(Stap2);
         ListA.add(Stap3);
         ListA.add(Stap4);
@@ -350,7 +360,7 @@ public class ModernClass extends AppCompatActivity {
         ListA.add(Stap10);
         ListA.add(Stap11);
 
-        ListNew.add(Stap1);
+        //ListNew.add(Stap1);
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -362,14 +372,19 @@ public class ModernClass extends AppCompatActivity {
         ListNew.add(Stap10);
         ListNew.add(Stap11);
 
+
         String returnValue = "";
         String returns;
         Random random = new Random();
         int index = random.nextInt(ListA.size());
 
         String ratata = ListA.get(index);
+        Log.d("ratata", "algorithm() returned: " + ratata);
         String sja;
         String sjo = "";
+        Log.d("hoebizar", "algorithm() returned: " + ListA);
+
+
 
         if (ratata.equals("Losse pas")) {
             body();
@@ -388,8 +403,23 @@ public class ModernClass extends AppCompatActivity {
                         }
                     })
                     .show();
-        } else {
+            /*
+            final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
 
+            builder
+                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
+                            "\r\nverander een losse pas naar: \r\n" + return11 +
+                            " " + return22 + " " + return33)
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                            dialog.cancel();
+                        }
+                    })
+                    .show();
+            */
+        } else {
 
             for (List<String> algor : Algo2) {
                 if (algor.toString().contains(ratata)) {
@@ -436,6 +466,7 @@ public class ModernClass extends AppCompatActivity {
                                     }
                                 })
                                 .show();
+
                     } else {
                         String result[] = algor.toString().split(",");
                         returnValue = result[0];
@@ -459,8 +490,114 @@ public class ModernClass extends AppCompatActivity {
                             }
                         })
                         .show();
+            }
+        }
+    }
+
+    private String getJSON(Context context) {
+        String str = "";
+        try {
+            AssetManager assetManager = context.getAssets();
+            InputStream in = assetManager.open("nieuwlos.json");
+            InputStreamReader isr = new InputStreamReader(in);
+
+            char[] inputBuffer = new char[100];
+
+            int charRead;
+            while ((charRead = isr.read(inputBuffer)) > 0) {
+                String readString = String.copyValueOf(inputBuffer, 0, charRead);
+                str += readString;
+            }
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+
+        return str;
+    }
+
+    public void parseBodyParts() {
+        JSONObject json = new JSONObject();
+
+
+        try {
+            json = new JSONObject(getJSON(getApplicationContext()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            body_parts = json.getJSONArray("record");
+
+            // Loop through the items till it ends
+            for (int i = 0; i < body_parts.length(); i++) {
+                JSONObject tijd = body_parts.getJSONObject(i);
+                beschrijvingbodypart = tijd.getString("Beschrijving");
+                lichaamsdeelnummer = tijd.getString("Lichaamsdeelnummer");
+                lichaamsdeel = tijd.getString("Lichaamsdeel");
+                type_beweging = tijd.getString("Type_beweging");
+
+                allbodyparts.add(beschrijvingbodypart + " " + lichaamsdeelnummer + " " + type_beweging);
+                combination = new String[]{beschrijvingbodypart + "," + lichaamsdeelnummer + "," + type_beweging};
+
+                List1 = Arrays.asList(combination);
+
+                List2.add(List1);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void body() {
+
+        getRandoms();
+        for (int i = 0; i < ListA.size(); i++) {
+            ListA.get(i);
+        }
+
+        if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)) {
+            Log.d("jajaja", "body() returned: " + return111 + return222 + return333);
+            body();
+        }
+
+        if (return1.equals("Fluent") || return2.equals("Fluent") || return3.equals("Fluent")) {
+            if (return1.equals("Fluent")) {
+                return11 = xfirst[0];
+                return11 = return11.substring(1);
+                return22 = "";
+                return33 = "";
+                fluent = return11;
 
             }
+            if (return2.equals("Fluent")) {
+                return22 = xsecond[0];
+                return22 = return22.substring(1);
+                return11 = "";
+                return33 = "";
+                fluent = return22;
+            }
+            if (return3.equals("Fluent")) {
+                return33 = xthird[0];
+                return33 = return33.substring(1);
+                return22 = "";
+                return11 = "";
+                fluent = return33;
+            }
+
+        }
+
+        // if everything is static and not the same bodypart; give description
+        if (return1.equals(return2) && (return2.equals(return3))) {
+            return11 = xfirst[0];
+            return11 = return11.substring(1);
+
+            return22 = xsecond[0];
+            return22 = return22.substring(1);
+
+            return33 = xthird[0];
+            return33 = return33.substring(1);
         }
     }
 
@@ -491,69 +628,6 @@ public class ModernClass extends AppCompatActivity {
         return222 = xsecond[1];
         return333 = xthird[1];
     }
-    public void body() {
-
-        getRandoms();
-        for (int i = 0; i < ListA.size(); i++) {
-            ListA.get(i);
-        }
-
-        if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)) {
-            body();
-        }
-
-        if (return1.equals("Fluent") || return2.equals("Fluent") || return3.equals("Fluent")) {
-            if (return1.equals("Fluent")) {
-                return11 = xfirst[0];
-                return11 = return11.substring(1);
-                return22 = "";
-                return33 = "";
-                fluent = return11;
-
-            }
-            else if (return2.equals("Fluent")) {
-                return22 = xsecond[0];
-                return22 = return22.substring(1);
-                return11 = "";
-                return33 = "";
-                fluent = return22;
-            }
-            else if (return3.equals("Fluent")) {
-                return33 = xthird[0];
-                return33 = return33.substring(1);
-                return22 = "";
-                return11 = "";
-                fluent = return33;
-            }
-
-            final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this);
-            builder
-                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                            "\r\nverander een losse pas naar: \r\n" + fluent)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                            dialog.cancel();
-                        }
-                    })
-                    .show();
-
-        }
-
-        // if everything is static and not the same bodypart; give description
-        if (return1.equals(return2) && (return2.equals(return3))) {
-            return11 = xfirst[0];
-            return11 = return11.substring(1);
-
-            return22 = xsecond[0];
-            return22 = return22.substring(1);
-
-            return33 = xthird[0];
-            return33 = return33.substring(1);
-        }
-    }
-
 
     public void algo(View view) throws InterruptedException {
         double d = Math.random() * 100;
@@ -574,7 +648,7 @@ public class ModernClass extends AppCompatActivity {
         }
         if ((76 < d && d < 101)) {
 
-            TextView stap1 = (TextView) textView.getSelectedView();
+            //TextView stap1 = (TextView) textView.getSelectedView();
             TextView stap2 = (TextView) textView2.getSelectedView();
             TextView stap3 = (TextView) textView3.getSelectedView();
             TextView stap4 = (TextView) textView4.getSelectedView();
@@ -585,7 +659,7 @@ public class ModernClass extends AppCompatActivity {
             TextView stap9 = (TextView) Spinner4.getSelectedView();
             TextView stap10 = (TextView) Spinner5.getSelectedView();
             TextView stap11 = (TextView) Spinner6.getSelectedView();
-            String Stap1 = stap1.getText().toString();
+            //String Stap1 = stap1.getText().toString();
             String Stap2 = stap2.getText().toString();
             String Stap3 = stap3.getText().toString();
             String Stap4 = stap4.getText().toString();
@@ -600,7 +674,7 @@ public class ModernClass extends AppCompatActivity {
 
             ListA = new ArrayList<>();
             ArrayList<String> ListN = new ArrayList<>();
-            ListA.add(Stap1);
+            //ListA.add(Stap1);
             ListA.add(Stap2);
             ListA.add(Stap3);
             ListA.add(Stap4);
@@ -612,7 +686,7 @@ public class ModernClass extends AppCompatActivity {
             ListA.add(Stap10);
             ListA.add(Stap11);
 
-            ListN.add(Stap1);
+            //ListN.add(Stap1);
             ListN.add(Stap2);
             ListN.add(Stap3);
             ListN.add(Stap4);
@@ -644,7 +718,6 @@ public class ModernClass extends AppCompatActivity {
 
             if (ratata.equals("Losse pas")) {
                 body();
-
 
                 final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
                 //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
@@ -750,4 +823,3 @@ public class ModernClass extends AppCompatActivity {
         }
     }
 }
-

@@ -9,8 +9,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Geef hier de dansstijl aan"
-        android:id="@+id/textView15"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/textView15" />
 
     <Spinner
         android:layout_width="match_parent"
@@ -22,10 +21,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=""
+        android:id="@+id/textView17"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Geef hier aan welke danspas je wilt gaan variëren"
-        android:id="@+id/textView16"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/textView16" />
 
     <Spinner
         android:layout_width="match_parent"
