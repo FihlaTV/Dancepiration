@@ -46,9 +46,11 @@ public class BalletClass extends AppCompatActivity {
     ArrayList<String> beginPos = new ArrayList<>();
     ArrayList<String> Typepas;
     List<String> c;
+    ArrayList<String> ListNew;
     List<List<String>> Algo2 = new ArrayList<>();
     ArrayList<String> ListA = new ArrayList<>();
     String pas1;
+    int index;
     String pas2 = "";
     Spinner textView;
     Spinner textView2;
@@ -320,9 +322,9 @@ public class BalletClass extends AppCompatActivity {
         String Stap10 = stap10.getText().toString();
         String Stap11 = stap11.getText().toString();
 
-        ArrayList<String> ListNew = new ArrayList<>();
-        ArrayList<String> ListA = new ArrayList<>();
-        ArrayList<String> Po = new ArrayList<>();
+        ListNew = new ArrayList<>();
+        ListA = new ArrayList<>();
+        Po = new ArrayList<>();
 
         //ListA.add(Stap1);
         ListA.add(Stap2);
@@ -349,64 +351,76 @@ public class BalletClass extends AppCompatActivity {
         ListNew.add(Stap11);
 
         Random random = new Random();
-        int index = random.nextInt(ListA.size());
+        index = random.nextInt(ListA.size());
 
         String ratata = ListA.get(index);
         String sja;
+        Log.d("ooo", "algorithm() returned: " + ratata);
 
         for (List<String> algor : Algo2) {
             if (algor.toString().contains(ratata)) {
                 String r[] = algor.toString().split(",");
                 returns = r[r.length - 1];
                 sja = returns.substring(0, returns.length() - 1);
+                Log.d("sja", "algorithm() returned: " + sja);
                 if (sja.equals(ratata)) {
                     sjo = r[0];
                     sjo = sjo.substring(1);
+                    alert();
+                    Log.d("sjo", "algorithm() returned: " + sjo);
                 }
             }
-                if (algor.toString().contains(sjo)) {
-                    String re[] = algor.toString().split(",");
-                    returns = re[re.length - 1];
-                    returns = returns.substring(0, returns.length() - 1);
-                    Po.add(returns);
-                    Log.d("dusss", "algorithm() returned: " + Po);
+        }
+    }
+
+    public void alert() {
+        for (List<String> algor : Algo2) {
+            if (algor.toString().contains(sjo)) {
+                Log.d("kloptwel", "alert() returned: " + algor);
+                String re[] = algor.toString().split(",");
+                returns = re[re.length - 1];
+                returns = returns.substring(0, returns.length() - 1);
+                Po.add(returns);
+                Log.d("dusss", "algorithm() returned: " + Po);
+                pas2 = Po.get(random.nextInt(Po.size()));
+                if (ListA.contains(pas2)) {
                     pas2 = Po.get(random.nextInt(Po.size()));
                     if (ListA.contains(pas2)) {
                         pas2 = Po.get(random.nextInt(Po.size()));
                         if (ListA.contains(pas2)) {
                             pas2 = Po.get(random.nextInt(Po.size()));
-                            if (ListA.contains(pas2)) {
-                                pas2 = Po.get(random.nextInt(Po.size()));
-                            }
+                            Log.d("oooo", "algorithm() returned: " + pas2);
                         }
                     }
                 }
+            }
 
-                if (algor.toString().contains(pas2)) {
-                    String result[] = algor.toString().split(",");
-                    returnValue = result[0];
-                    returnValue = returnValue.substring(1);
-                }
+            if (algor.toString().contains(pas2)) {
+                String result[] = algor.toString().split(",");
+                returnValue = result[0];
+                returnValue = returnValue.substring(1);
             }
-            //output = e.g. General
-            if (sjo.equals(returnValue)) {
-                ListNew.set(index, pas2);
+        }
+        //output = e.g. General
+        if (sjo.equals(returnValue)) {
+            ListNew.set(index, pas2);
 
-                final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
-                //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
-                builder
-                        .setTitle("PROBEER DIT EENS")
-                        .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+
-                                "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListNew+"</h1>"))
-                        .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .show();
-            }
-            }
+            final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
+            //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+            builder
+                    .setTitle("PROBEER DIT EENS")
+                    .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
+                            "\r\n" + "<br>" + "<h3>" + "verander je choreografie naar: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListNew + "</h1>"))
+                    .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
+        }
+    }
+
 
 
     public void random() {

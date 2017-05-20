@@ -34,6 +34,8 @@ public class ModernClass extends AppCompatActivity {
     String dancestyle;
     String typepas;
     String beschrijving;
+    ArrayList<String> ListNew;
+    int index;
     String[] combi;
     ArrayList<String> responseList = new ArrayList<>();
     ArrayList<String> beginPos = new ArrayList<>();
@@ -43,8 +45,10 @@ public class ModernClass extends AppCompatActivity {
     String pas1;
     String pas2 = "";
     String pas3 = "";
+    String ReturnValue;
     android.widget.Spinner textView;
     Spinner textView2;
+    String ratata;
     Spinner textView3;
     Spinner textView4;
     Spinner textView5;
@@ -81,11 +85,14 @@ public class ModernClass extends AppCompatActivity {
     String type_beweging;
     String[] combination;
     List<String> List1;
+    String sjo="";
+    String returnValue;
+    String returns;
     List<List<String>> List2 = new ArrayList<>();
     ArrayList<String> allbodyparts = new ArrayList<>();
     ArrayList<String> Po = new ArrayList<>();
     ArrayList<String> Zo = new ArrayList<>();
-    ArrayList<String> ListA;
+    ArrayList<String> ListA = new ArrayList<>();;
     int index1;
     int index2;
     String fluent;
@@ -120,6 +127,7 @@ public class ModernClass extends AppCompatActivity {
     }
 
     public void parseJSON() {
+        Algo2.clear();
         JSONObject json = new JSONObject();
 
 
@@ -223,6 +231,7 @@ public class ModernClass extends AppCompatActivity {
                     c = Arrays.asList(combi);
 
                     Algo2.add(c);
+                    Log.d("watismis", "parseJSON() returned: " + Algo2);
 
                 }
 
@@ -346,7 +355,8 @@ public class ModernClass extends AppCompatActivity {
         String Stap11 = stap11.getText().toString();
 
         ListA = new ArrayList<>();
-        ArrayList<String> ListNew = new ArrayList<>();
+        ListNew = new ArrayList<>();
+        Po = new ArrayList<>();
 
         //ListA.add(Stap1);
         ListA.add(Stap2);
@@ -373,17 +383,15 @@ public class ModernClass extends AppCompatActivity {
         ListNew.add(Stap11);
 
 
-        String returnValue = "";
-        String returns;
-        Random random = new Random();
-        int index = random.nextInt(ListA.size());
+        returnValue = "";
 
-        String ratata = ListA.get(index);
+        Random random = new Random();
+        index = random.nextInt(ListA.size());
+
+        ratata = ListA.get(index);
         Log.d("ratata", "algorithm() returned: " + ratata);
         String sja;
-        String sjo = "";
         Log.d("hoebizar", "algorithm() returned: " + ListA);
-
 
 
         if (ratata.equals("Losse pas")) {
@@ -393,8 +401,8 @@ public class ModernClass extends AppCompatActivity {
             //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
             builder
                     .setTitle("PROBEER DIT EENS")
-                    .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ ListA +"</h1>"+
-                            "\r\n" + "<br>" + "<h3>"+"verander een losse pas naar: " +"</h3>" + "\r\n" + "<br>" + "<h1>"+ return11 +
+                    .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
+                            "\r\n" + "<br>" + "<h3>" + "verander een losse pas naar: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + return11 +
                             " " + return22 + " " + return33 + "</h1>"))
                     .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                         @Override
@@ -429,70 +437,82 @@ public class ModernClass extends AppCompatActivity {
                     if (sja.equals(ratata)) {
                         sjo = r[0];
                         sjo = sjo.substring(1);
+
+                        Log.d("sjo", "algorithm() returned: " + sjo);
+
+                        alert();
                     }
                 }
-                if (algor.toString().contains(sjo)) {
-                    String re[] = algor.toString().split(",");
-                    returns = re[re.length - 1];
-                    returns = returns.substring(0, returns.length() - 1);
-                    Po.add(returns);
+            }
+        }
+    }
+
+    public void alert() {
+        for (List<String> algor : Algo2) {
+            if (algor.toString().contains(sjo)) {
+                Log.d("kloptniet", "alert() returned: " + algor);
+                String re[] = algor.toString().split(",");
+                returns = re[re.length - 1];
+                returns = returns.substring(0, returns.length() - 1);
+                Po.add(returns);
+                Log.d("dusss", "algorithm() returned: " + Po);
+                pas2 = Po.get(random.nextInt(Po.size()));
+                if (ListA.contains(pas2)) {
                     pas2 = Po.get(random.nextInt(Po.size()));
                     if (ListA.contains(pas2)) {
                         pas2 = Po.get(random.nextInt(Po.size()));
                         if (ListA.contains(pas2)) {
                             pas2 = Po.get(random.nextInt(Po.size()));
-                            if (ListA.contains(pas2)) {
-                                pas2 = Po.get(random.nextInt(Po.size()));
-                            }
                         }
                     }
                 }
+            }
 
-                if (algor.toString().contains(pas2)) {
-                    if (pas2.equals("Losse pas")) {
-                        body();
+            if (algor.toString().contains(pas2)) {
+                if (pas2.equals("Losse pas")) {
+                    body();
 
-                        final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
-                        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
-                        builder
-                                .setTitle("PROBEER DIT EENS")
-                                .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ ListA +"</h1>"+
-                                        "\r\n" + "<br>" + "<h3>"+"verander " + ratata + " naar"  +"</h3>" + "\r\n" + "<br>" + "<h1>"+ return11 +
-                                        " " + return22 + " " + return33 + "</h1>"))
-                                .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        dialog.dismiss();
-                                    }
-                                })
-                                .show();
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+                    //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+                    builder
+                            .setTitle("PROBEER DIT EENS")
+                            .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
+                                    "\r\n" + "<br>" + "<h3>" + "verander " + ratata + " naar" + "</h3>" + "\r\n" + "<br>" + "<h1>" + return11 +
+                                    " " + return22 + " " + return33 + "</h1>"))
+                            .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
 
-                    } else {
-                        String result[] = algor.toString().split(",");
-                        returnValue = result[0];
-                        returnValue = returnValue.substring(1);
-                    }
+                } else {
+                    String result[] = algor.toString().split(",");
+                    returnValue = result[0];
+                    returnValue = returnValue.substring(1);
                 }
             }
-            //output = e.g. General
-            if (sjo.equals(returnValue)) {
-                ListNew.set(index, pas2);
-                final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
-                //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
-                builder
-                        .setTitle("PROBEER DIT EENS")
-                        .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+
-                                "\r\n" + "<br>" + "<h3>"+"verander je choreografie naar: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListNew+"</h1>"))
-                        .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int id) {
-                                dialog.dismiss();
-                            }
-                        })
-                        .show();
-            }
+        }
+        //output = e.g. General
+        if (sjo.equals(returnValue)) {
+            ListNew.set(index, pas2);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(ModernClass.this, R.style.AlertDialogCustom);
+            //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+            builder
+                    .setTitle("PROBEER DIT EENS")
+                    .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
+                            "\r\n" + "<br>" + "<h3>" + "verander je choreografie naar: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListNew + "</h1>"))
+                    .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
         }
     }
+
 
     private String getJSON(Context context) {
         String str = "";
@@ -674,6 +694,7 @@ public class ModernClass extends AppCompatActivity {
 
             ListA = new ArrayList<>();
             ArrayList<String> ListN = new ArrayList<>();
+            Po = new ArrayList<>();
             //ListA.add(Stap1);
             ListA.add(Stap2);
             ListA.add(Stap3);
