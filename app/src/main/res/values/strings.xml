@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Danspiratie</string>
+    <string name="app_name">Dancespiration</string>
     <string-array name="startposities">
         <item>Vul dit in</item>
         <item>Vanuit stand</item>

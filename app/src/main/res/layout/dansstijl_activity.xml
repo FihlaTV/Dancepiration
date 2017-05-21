@@ -7,14 +7,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Alle dansstijlen"
-        android:id="@+id/alledansstijlen"
-        android:layout_gravity="center_horizontal"
-        android:onClick="alledansstijlen"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Ballet"
         android:id="@+id/ballet"
         android:layout_gravity="center_horizontal"
@@ -35,14 +27,6 @@
         android:id="@+id/streetdance"
         android:layout_gravity="center_horizontal"
         android:onClick="streetdance"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="BodyParts"
-        android:id="@+id/button6"
-        android:layout_gravity="center_horizontal"
-        android:onClick="bodyparts"/>
 
     <Button
         android:layout_width="match_parent"
