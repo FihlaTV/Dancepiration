@@ -25,21 +25,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by Josien on 27-4-2017.
- */
 public class ChangeStep extends AppCompatActivity {
 
     JSONArray art_objects;
     String dancestyle;
     String typepas;
     String beschrijving;
-    String dansstijl2;
     String returns;
     ArrayList<String> BalletList = new ArrayList<>();
     ArrayList<String> ModernList = new ArrayList<>();
     ArrayList<String> StreetdanceList = new ArrayList<>();
-    ArrayList<String> beginPos = new ArrayList<>();
     Spinner Ballet;
     Spinner Modern;
     Spinner Streetdance;
@@ -123,9 +118,9 @@ public class ChangeStep extends AppCompatActivity {
 
 
 
-        final ArrayAdapter<String> ballet =  new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,BalletList);
-        final ArrayAdapter<String> modern =  new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ModernList);
-        final ArrayAdapter<String> streetdance =  new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,StreetdanceList);
+        final ArrayAdapter<String> ballet =  new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,BalletList);
+        final ArrayAdapter<String> modern =  new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,ModernList);
+        final ArrayAdapter<String> streetdance =  new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,StreetdanceList);
 
         textView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -256,7 +251,6 @@ public class ChangeStep extends AppCompatActivity {
             }
         }
         final AlertDialog.Builder builder = new AlertDialog.Builder(ChangeStep.this, R.style.AlertDialogCustom);
-        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
         builder
                 .setTitle("VARIATIES")
                 .setMessage(Html.fromHtml("<h3>"+"Dit zijn variaties op "+ ok +"</h3>" + ": " + "\r\n" + "<br>" + "<h1>"+Po+"</h1>"))
@@ -267,18 +261,6 @@ public class ChangeStep extends AppCompatActivity {
                     }
                 })
                 .show();
-/*
-            final AlertDialog.Builder builder = new AlertDialog.Builder(ChangeStep.this);
-            builder
-                    .setMessage("Dit zijn variaties op " + ok + ": " + Po)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                        }
-                    })
-                    .show();
-                    */
         }
 
     private String getJSONString(Context context) {

@@ -1,18 +1,14 @@
 package com.example.josien.masterthesis;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.view.ContextThemeWrapper;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -30,16 +26,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by Josien on 21-4-2017.
- */
 public class BalletClass extends AppCompatActivity {
 
     String dancestyle;
     String typepas;
     String beschrijving;
     String[] combi;
-    String sjo="";
+    String dance_style = "";
     String returnValue;
     String returns;
     ArrayList<String> responseList = new ArrayList<>();
@@ -52,7 +45,6 @@ public class BalletClass extends AppCompatActivity {
     String pas1;
     int index;
     String pas2 = "";
-    Spinner textView;
     Spinner textView2;
     Spinner textView3;
     Spinner textView4;
@@ -117,8 +109,6 @@ public class BalletClass extends AppCompatActivity {
             // Loop through the items till it ends
             for (int i = 0; i < art_objects.length(); i++) {
                 JSONObject tijd = art_objects.getJSONObject(i);
-                String nummer = tijd.getString("Nummer");
-                String pasnaam = tijd.getString("Pasnaam");
                 dancestyle = tijd.getString("Style");
                 typepas = tijd.getString("TypePas");
                 beschrijving = tijd.getString("Beschrijving");
@@ -129,14 +119,6 @@ public class BalletClass extends AppCompatActivity {
                     }
 
                     responseList.add(beschrijving);
-
-                    /*
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                            android.R.layout.simple_dropdown_item_1line, beginPos);
-                    textView = (Spinner)
-                            findViewById(R.id.autocomplete);
-                    textView.setAdapter(adapter);
-                    */
 
                     ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                             android.R.layout.simple_dropdown_item_1line, responseList);
@@ -216,8 +198,7 @@ public class BalletClass extends AppCompatActivity {
     }
 
     public void randomizer(View view) throws JSONException {
-
-        //TextView stap1 = (TextView) textView.getSelectedView();
+        
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -228,7 +209,6 @@ public class BalletClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        //String Stap1 = stap1.getText().toString();
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -242,7 +222,7 @@ public class BalletClass extends AppCompatActivity {
 
         ArrayList<String> List = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
-        //List.add(Stap1);
+        
         List.add(Stap2);
         List.add(Stap3);
         List.add(Stap4);
@@ -254,7 +234,6 @@ public class BalletClass extends AppCompatActivity {
         List.add(Stap10);
         List.add(Stap11);
 
-        //ListNew.add(Stap1);
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -282,7 +261,7 @@ public class BalletClass extends AppCompatActivity {
         ListNew.set(index, pas1);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
-        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+    
         builder
                 .setTitle("PROBEER DIT EENS")
                 .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+List+"</h1>"+
@@ -298,8 +277,7 @@ public class BalletClass extends AppCompatActivity {
 
 
     public void algorithm(View view) {
-
-        //TextView stap1 = (TextView) textView.getSelectedView();
+        
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -310,7 +288,7 @@ public class BalletClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        //String Stap1 = stap1.getText().toString();
+       
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -326,7 +304,7 @@ public class BalletClass extends AppCompatActivity {
         ListA = new ArrayList<>();
         Po = new ArrayList<>();
 
-        //ListA.add(Stap1);
+        
         ListA.add(Stap2);
         ListA.add(Stap3);
         ListA.add(Stap4);
@@ -337,8 +315,7 @@ public class BalletClass extends AppCompatActivity {
         ListA.add(Stap9);
         ListA.add(Stap10);
         ListA.add(Stap11);
-
-        //ListNew.add(Stap1);
+        
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -353,21 +330,18 @@ public class BalletClass extends AppCompatActivity {
         Random random = new Random();
         index = random.nextInt(ListA.size());
 
-        String ratata = ListA.get(index);
-        String sja;
-        Log.d("ooo", "algorithm() returned: " + ratata);
+        String randomizedstring = ListA.get(index);
+        String newstring;
 
         for (List<String> algor : Algo2) {
-            if (algor.toString().contains(ratata)) {
+            if (algor.toString().contains(randomizedstring)) {
                 String r[] = algor.toString().split(",");
                 returns = r[r.length - 1];
-                sja = returns.substring(0, returns.length() - 1);
-                Log.d("sja", "algorithm() returned: " + sja);
-                if (sja.equals(ratata)) {
-                    sjo = r[0];
-                    sjo = sjo.substring(1);
+                newstring = returns.substring(0, returns.length() - 1);
+                if (newstring.equals(randomizedstring)) {
+                    dance_style = r[0];
+                    dance_style = dance_style.substring(1);
                     alert();
-                    Log.d("sjo", "algorithm() returned: " + sjo);
                 }
             }
         }
@@ -375,13 +349,12 @@ public class BalletClass extends AppCompatActivity {
 
     public void alert() {
         for (List<String> algor : Algo2) {
-            if (algor.toString().contains(sjo)) {
-                Log.d("kloptwel", "alert() returned: " + algor);
+            if (algor.toString().contains(dance_style)) {
                 String re[] = algor.toString().split(",");
                 returns = re[re.length - 1];
                 returns = returns.substring(0, returns.length() - 1);
                 Po.add(returns);
-                Log.d("dusss", "algorithm() returned: " + Po);
+
                 pas2 = Po.get(random.nextInt(Po.size()));
                 if (ListA.contains(pas2)) {
                     pas2 = Po.get(random.nextInt(Po.size()));
@@ -389,7 +362,6 @@ public class BalletClass extends AppCompatActivity {
                         pas2 = Po.get(random.nextInt(Po.size()));
                         if (ListA.contains(pas2)) {
                             pas2 = Po.get(random.nextInt(Po.size()));
-                            Log.d("oooo", "algorithm() returned: " + pas2);
                         }
                     }
                 }
@@ -401,12 +373,12 @@ public class BalletClass extends AppCompatActivity {
                 returnValue = returnValue.substring(1);
             }
         }
-        //output = e.g. General
-        if (sjo.equals(returnValue)) {
+
+        if (dance_style.equals(returnValue)) {
             ListNew.set(index, pas2);
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
-            //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+
             builder
                     .setTitle("PROBEER DIT EENS")
                     .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
@@ -445,7 +417,6 @@ public class BalletClass extends AppCompatActivity {
             btn.performClick();
         }
         if ((76 < d && d < 101)) {
-            //TextView stap1 = (TextView) textView.getSelectedView();
             TextView stap2 = (TextView) textView2.getSelectedView();
             TextView stap3 = (TextView) textView3.getSelectedView();
             TextView stap4 = (TextView) textView4.getSelectedView();
@@ -456,7 +427,7 @@ public class BalletClass extends AppCompatActivity {
             TextView stap9 = (TextView) Spinner4.getSelectedView();
             TextView stap10 = (TextView) Spinner5.getSelectedView();
             TextView stap11 = (TextView) Spinner6.getSelectedView();
-            //String Stap1 = stap1.getText().toString();
+
             String Stap2 = stap2.getText().toString();
             String Stap3 = stap3.getText().toString();
             String Stap4 = stap4.getText().toString();
@@ -471,7 +442,7 @@ public class BalletClass extends AppCompatActivity {
 
             ListA = new ArrayList<>();
             ArrayList<String> ListN = new ArrayList<>();
-            //ListA.add(Stap1);
+
             ListA.add(Stap2);
             ListA.add(Stap3);
             ListA.add(Stap4);
@@ -483,7 +454,6 @@ public class BalletClass extends AppCompatActivity {
             ListA.add(Stap10);
             ListA.add(Stap11);
 
-            //ListN.add(Stap1);
             ListN.add(Stap2);
             ListN.add(Stap3);
             ListN.add(Stap4);
@@ -583,7 +553,7 @@ public class BalletClass extends AppCompatActivity {
                     ListN.set(index1, pas2);
                     ListN.set(index2, pas3);
                     final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this, R.style.AlertDialogCustom);
-                    //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+
                     builder
                             .setTitle("PROBEER DIT EENS")
                             .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+

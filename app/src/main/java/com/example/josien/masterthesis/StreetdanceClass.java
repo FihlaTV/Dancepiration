@@ -26,9 +26,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by Josien on 25-4-2017.
- */
 public class StreetdanceClass extends AppCompatActivity {
 
     String dancestyle;
@@ -45,10 +42,8 @@ public class StreetdanceClass extends AppCompatActivity {
     String pas1;
     String pas2 = "";
     String pas3 = "";
-    String ReturnValue;
-    android.widget.Spinner textView;
     Spinner textView2;
-    String ratata;
+    String string_randomized;
     Spinner textView3;
     Spinner textView4;
     Spinner textView5;
@@ -85,14 +80,14 @@ public class StreetdanceClass extends AppCompatActivity {
     String type_beweging;
     String[] combination;
     List<String> List1;
-    String sjo="";
+    String newstring ="";
     String returnValue;
     String returns;
     List<List<String>> List2 = new ArrayList<>();
     ArrayList<String> allbodyparts = new ArrayList<>();
     ArrayList<String> Po = new ArrayList<>();
     ArrayList<String> Zo = new ArrayList<>();
-    ArrayList<String> ListA = new ArrayList<>();;
+    ArrayList<String> ListA = new ArrayList<>();
     int index1;
     int index2;
     String fluent;
@@ -156,13 +151,6 @@ public class StreetdanceClass extends AppCompatActivity {
 
                     responseList.add(beschrijving);
 
-                    /*
-                    ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                            android.R.layout.simple_dropdown_item_1line, beginPos);
-                    textView = (Spinner)
-                            findViewById(R.id.autocomplete);
-                    textView.setAdapter(adapter);
-                    */
 
                     ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this,
                             android.R.layout.simple_dropdown_item_1line, responseList);
@@ -244,7 +232,7 @@ public class StreetdanceClass extends AppCompatActivity {
 
     public void randomizer(View view) throws JSONException {
 
-        //TextView stap1 = (TextView) textView.getSelectedView();
+
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -255,7 +243,7 @@ public class StreetdanceClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        //String Stap1 = stap1.getText().toString();
+
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -269,7 +257,7 @@ public class StreetdanceClass extends AppCompatActivity {
 
         ArrayList<String> List = new ArrayList<>();
         ArrayList<String> ListNew = new ArrayList<>();
-        //List.add(Stap1);
+
         List.add(Stap2);
         List.add(Stap3);
         List.add(Stap4);
@@ -281,7 +269,6 @@ public class StreetdanceClass extends AppCompatActivity {
         List.add(Stap10);
         List.add(Stap11);
 
-        //ListNew.add(Stap1);
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -309,7 +296,7 @@ public class StreetdanceClass extends AppCompatActivity {
         ListNew.set(index, pas1);
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this, R.style.AlertDialogCustom);
-        //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+
         builder
                 .setTitle("PROBEER DIT EENS")
                 .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+List+"</h1>"+
@@ -331,7 +318,6 @@ public class StreetdanceClass extends AppCompatActivity {
 
     public void algorithm(View view) {
 
-        //TextView stap1 = (TextView) textView.getSelectedView();
         TextView stap2 = (TextView) textView2.getSelectedView();
         TextView stap3 = (TextView) textView3.getSelectedView();
         TextView stap4 = (TextView) textView4.getSelectedView();
@@ -342,7 +328,7 @@ public class StreetdanceClass extends AppCompatActivity {
         TextView stap9 = (TextView) Spinner4.getSelectedView();
         TextView stap10 = (TextView) Spinner5.getSelectedView();
         TextView stap11 = (TextView) Spinner6.getSelectedView();
-        //String Stap1 = stap1.getText().toString();
+
         String Stap2 = stap2.getText().toString();
         String Stap3 = stap3.getText().toString();
         String Stap4 = stap4.getText().toString();
@@ -358,7 +344,6 @@ public class StreetdanceClass extends AppCompatActivity {
         ListNew = new ArrayList<>();
         Po = new ArrayList<>();
 
-        //ListA.add(Stap1);
         ListA.add(Stap2);
         ListA.add(Stap3);
         ListA.add(Stap4);
@@ -370,7 +355,6 @@ public class StreetdanceClass extends AppCompatActivity {
         ListA.add(Stap10);
         ListA.add(Stap11);
 
-        //ListNew.add(Stap1);
         ListNew.add(Stap2);
         ListNew.add(Stap3);
         ListNew.add(Stap4);
@@ -388,17 +372,15 @@ public class StreetdanceClass extends AppCompatActivity {
         Random random = new Random();
         index = random.nextInt(ListA.size());
 
-        ratata = ListA.get(index);
-        Log.d("ratata", "algorithm() returned: " + ratata);
-        String sja;
-        Log.d("hoebizar", "algorithm() returned: " + ListA);
+        string_randomized = ListA.get(index);
+        String ran_string;
 
 
-        if (ratata.equals("Losse pas")) {
+        if (string_randomized.equals("Losse pas")) {
             body();
 
             final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this, R.style.AlertDialogCustom);
-            //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+
             builder
                     .setTitle("PROBEER DIT EENS")
                     .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
@@ -411,34 +393,19 @@ public class StreetdanceClass extends AppCompatActivity {
                         }
                     })
                     .show();
-            /*
-            final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this);
 
-            builder
-                    .setMessage("Dit is nu je choreografie: \r\n" + ListA +
-                            "\r\nverander een losse pas naar: \r\n" + return11 +
-                            " " + return22 + " " + return33)
-                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.dismiss();
-                            dialog.cancel();
-                        }
-                    })
-                    .show();
-            */
         } else {
 
             for (List<String> algor : Algo2) {
-                if (algor.toString().contains(ratata)) {
+                if (algor.toString().contains(string_randomized)) {
                     String r[] = algor.toString().split(",");
                     returns = r[r.length - 1];
-                    sja = returns.substring(0, returns.length() - 1);
-                    if (sja.equals(ratata)) {
-                        sjo = r[0];
-                        sjo = sjo.substring(1);
+                    ran_string = returns.substring(0, returns.length() - 1);
+                    if (ran_string.equals(string_randomized)) {
+                        newstring = r[0];
+                        newstring = newstring.substring(1);
 
-                        Log.d("sjo", "algorithm() returned: " + sjo);
+                        Log.d("dance_style", "algorithm() returned: " + newstring);
 
                         alert();
                     }
@@ -449,13 +416,11 @@ public class StreetdanceClass extends AppCompatActivity {
 
     public void alert() {
         for (List<String> algor : Algo2) {
-            if (algor.toString().contains(sjo)) {
-                Log.d("kloptniet", "alert() returned: " + algor);
+            if (algor.toString().contains(newstring)) {
                 String re[] = algor.toString().split(",");
                 returns = re[re.length - 1];
                 returns = returns.substring(0, returns.length() - 1);
                 Po.add(returns);
-                Log.d("dusss", "algorithm() returned: " + Po);
                 pas2 = Po.get(random.nextInt(Po.size()));
                 if (ListA.contains(pas2)) {
                     pas2 = Po.get(random.nextInt(Po.size()));
@@ -473,11 +438,10 @@ public class StreetdanceClass extends AppCompatActivity {
                     body();
 
                     final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this, R.style.AlertDialogCustom);
-                    //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
                     builder
                             .setTitle("PROBEER DIT EENS")
                             .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
-                                    "\r\n" + "<br>" + "<h3>" + "verander " + ratata + " naar" + "</h3>" + "\r\n" + "<br>" + "<h1>" + return11 +
+                                    "\r\n" + "<br>" + "<h3>" + "verander " + string_randomized + " naar" + "</h3>" + "\r\n" + "<br>" + "<h1>" + return11 +
                                     " " + return22 + " " + return33 + "</h1>"))
                             .setPositiveButton("Ik heb het uitgevoerd", new DialogInterface.OnClickListener() {
                                 @Override
@@ -494,11 +458,11 @@ public class StreetdanceClass extends AppCompatActivity {
                 }
             }
         }
-        //output = e.g. General
-        if (sjo.equals(returnValue)) {
+
+        if (newstring.equals(returnValue)) {
             ListNew.set(index, pas2);
             final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this, R.style.AlertDialogCustom);
-            //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+
             builder
                     .setTitle("PROBEER DIT EENS")
                     .setMessage(Html.fromHtml("<h3>" + "Dit is nu je choreografie: " + "</h3>" + "\r\n" + "<br>" + "<h1>" + ListA + "</h1>" +
@@ -578,7 +542,6 @@ public class StreetdanceClass extends AppCompatActivity {
         }
 
         if (return111.equals(return222) || return222.equals(return333) || return111.equals(return333)) {
-            Log.d("jajaja", "body() returned: " + return111 + return222 + return333);
             body();
         }
 
@@ -651,24 +614,19 @@ public class StreetdanceClass extends AppCompatActivity {
 
     public void algo(View view) throws InterruptedException {
         double d = Math.random() * 100;
-        Log.d("ikben", "algo() returned: " + d);
         if ((d < 65)) {
-            Log.d("ikbenhier", "algo() returned: " + d);
             Button btn;
             btn = (Button) findViewById(R.id.button5);
 
             btn.performClick();
         }
         if ((65 < d && d < 76)) {
-            Log.d("ikbenhierhoor", "algo() returned: " + d);
             Button btn;
             btn = (Button) findViewById(R.id.okey);
 
             btn.performClick();
         }
         if ((76 < d && d < 101)) {
-
-            //TextView stap1 = (TextView) textView.getSelectedView();
             TextView stap2 = (TextView) textView2.getSelectedView();
             TextView stap3 = (TextView) textView3.getSelectedView();
             TextView stap4 = (TextView) textView4.getSelectedView();
@@ -679,7 +637,7 @@ public class StreetdanceClass extends AppCompatActivity {
             TextView stap9 = (TextView) Spinner4.getSelectedView();
             TextView stap10 = (TextView) Spinner5.getSelectedView();
             TextView stap11 = (TextView) Spinner6.getSelectedView();
-            //String Stap1 = stap1.getText().toString();
+
             String Stap2 = stap2.getText().toString();
             String Stap3 = stap3.getText().toString();
             String Stap4 = stap4.getText().toString();
@@ -695,7 +653,7 @@ public class StreetdanceClass extends AppCompatActivity {
             ListA = new ArrayList<>();
             ArrayList<String> ListN = new ArrayList<>();
             Po = new ArrayList<>();
-            //ListA.add(Stap1);
+
             ListA.add(Stap2);
             ListA.add(Stap3);
             ListA.add(Stap4);
@@ -707,7 +665,6 @@ public class StreetdanceClass extends AppCompatActivity {
             ListA.add(Stap10);
             ListA.add(Stap11);
 
-            //ListN.add(Stap1);
             ListN.add(Stap2);
             ListN.add(Stap3);
             ListN.add(Stap4);
@@ -827,7 +784,7 @@ public class StreetdanceClass extends AppCompatActivity {
                     ListN.set(index1, pas2);
                     ListN.set(index2, pas3);
                     final AlertDialog.Builder builder = new AlertDialog.Builder(StreetdanceClass.this, R.style.AlertDialogCustom);
-                    //final AlertDialog.Builder builder = new AlertDialog.Builder(BalletClass.this);
+
                     builder
                             .setTitle("PROBEER DIT EENS")
                             .setMessage(Html.fromHtml("<h3>"+"Dit is nu je choreografie: "+"</h3>" + "\r\n" + "<br>" + "<h1>"+ListA+"</h1>"+
