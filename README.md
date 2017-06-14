@@ -1,3 +1,4 @@
+## Dancepiration
 This application called Dancepiration is part of a Master project at Vrije Universiteit Amsterdam. The Master project is about support for choreographers by semi-automatic dance analysis and the generation of new creative elements.
 
 ### Usage
